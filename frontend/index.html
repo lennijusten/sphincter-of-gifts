@@ -36,7 +36,7 @@
     <ul class="messages"></ul>
     <div class="bottom_wrapper clearfix">
         <div class="message_input_wrapper">
-            <input class="message_input" placeholder="Type your message here..." />
+            <input class="message_input" name="response" placeholder="Type your message here..." />
         </div>
         <div class="send_message">
             <div class="icon"></div>
@@ -106,6 +106,17 @@
                 text: text,
                 message_side: message_side
             });
+            $.ajax({ 
+                url: '/process', 
+                type: 'POST', 
+                data: { 'data': message }, 
+                success: function(response) { 
+                    document.getElementById('output').innerHTML = response; 
+                }, 
+                error: function(error) { 
+                    console.log(error); 
+                } 
+            }); 
             message.draw();
             return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
         };
@@ -117,13 +128,6 @@
                 return sendMessage(getMessageText());
             }
         });
-        sendMessage('Hello Philip! :)');
-        setTimeout(function () {
-            return sendMessage('Hi Sandy! How are you?');
-        }, 1000);
-        return setTimeout(function () {
-            return sendMessage('I\'m fine, thank you!');
-        }, 2000);
     });
 }.call(this));
     </script>

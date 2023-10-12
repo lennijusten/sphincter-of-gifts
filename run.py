@@ -2,6 +2,19 @@ import openai
 import json
 import random
 import urllib
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route("/") 
+def hello(): 
+	return render_template('index.html') 
+
+
+if __name__ == '__main__': 
+	app.run(debug=True) 
+
+
 
 api_key = "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"
 
@@ -20,9 +33,10 @@ def generate_initial_image(prompt):
     return image_url
 
 
+@app.route('/process', methods=['POST']) 
 def get_user_response():
     # Simulate user input (replace this with actual user input)
-    user_response = "User's guess goes here"
+    user_response = request.form.get('data') 
     return user_response
 
 
