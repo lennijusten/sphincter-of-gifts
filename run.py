@@ -5,8 +5,13 @@ import requests
 import shutil
 import os
 
+from arduino import Arduino
+
 # Initialize the OpenAI API client
 openai.api_key = ""
+
+# Port for the arduino
+port = ""
 
 
 def create_run_directory():
@@ -94,8 +99,10 @@ def give_hint(initial_prompt, user_response, hint_number, key, run_directory):
 
 
 def print_ticket():
-    print("Here's your drink ticket for the special spicy alien cocktail! 🍹")
-
+    arduino = Arduino(port)
+    arduino.wait_until_ready()
+    arduino.recv().decode('utf-8')
+    arduino.write_and_recv("Print Ticket")
 
 def main_game_loop():
     # Create a directory for this run
