@@ -15,32 +15,36 @@ class Printer {
       m_printer.begin();
     }
 
-    void print() {
-      m_printer.feed(3);
-
+    void print(String date, String id) {
       m_printer.justify('C');
-      m_printer.setSize('L');
+      m_printer.setSize('M');
       m_printer.doubleHeightOn();
       m_printer.boldOn();
-      m_printer.println("FREE DRINK\nTICKET");
+      
+      m_printer.feed(3);
+
+      m_printer.println(date);
+      m_printer.setSize('S');
+      m_printer.println("Free Drink Ticket");
       
       m_printer.feed(1);
       
-      m_printer.justify('M');
-      unsigned long idx = random(3);
+      m_printer.setSize('S');
+      unsigned long idx = random(6);
       m_printer.println(ascii_art[idx]);
-      m_printer.justify('C');
       
       m_printer.feed(1);
 
-      m_printer.setSize('L');
-      m_printer.println("FROM OUR\nSPHINCTER\nTO YOUR\nMOUTH");
+      m_printer.setSize('M');
+      m_printer.println("FROM MY\nSPHINCTER\nTO YOUR\nMOUTH");
       
       m_printer.feed(1);
       
-      m_printer.setSize('M');
       m_printer.boldOff();
+      m_printer.setSize('S');
       m_printer.println("10/13/23");
+      m_printer.print("Ticket ID: ");
+      m_printer.println(id);
       
       m_printer.feed(3);
       

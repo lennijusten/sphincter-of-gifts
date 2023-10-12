@@ -25,11 +25,13 @@ void setup() {
 
 void loop() {
   while (!Serial.available());
-  Serial.print("Received: ");
-  Serial.println(Serial.readString());
+  String received = Serial.readString();
+  String date = received.substring(0, received.indexOf('|'));
+  String id = received.substring(received.indexOf('|') + 1);
 
   flash();
-  printer.print();
+  printer.print(date, id);
+  Serial.println("Done!");
 }
 
 //===============

@@ -1,4 +1,11 @@
 import serial
+import string
+import random
+
+def gen_ticket_id(length=8):
+    characters = string.ascii_letters + string.digits  # A-Z, a-z, 0-9
+    ticket_id = ''.join(random.choice(characters) for _ in range(length))
+    return ticket_id
 
 class Arduino:
     def __init__(self, port, baud_rate=115200):
