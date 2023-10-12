@@ -34,6 +34,13 @@ def evaluate_response(initial_prompt, user_response):
     return user_response.lower() == initial_prompt.lower()
 
 
+def give_hint(initial_prompt, user_response):
+    pass
+
+def print_ticket():
+    pass
+
+
 def main_game_loop():
     # Read date ideas from the JSON file
     with open("date-ideas.json", "r") as file:
@@ -54,10 +61,12 @@ def main_game_loop():
         if is_correct:
             # User guessed correctly, reward them
             print("Congratulations! You guessed the date idea correctly.")
+            print_ticket()
             break
         else:
             current_guesses += 1
             print(f"Sorry, that's not quite right. You have {max_guesses - current_guesses} guesses left.")
+            give_hint()
 
     if current_guesses >= max_guesses:
         print("The alien tells you the date won't work due to communication problems.")
