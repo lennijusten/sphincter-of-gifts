@@ -58,7 +58,7 @@ def evaluate_response(initial_prompt, user_response):
              f"Only return a number. "
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
             {"role": "system",
              "content": 'You are a helpful computer assistant. Evaluate the semantic and thematic similarity between '
@@ -76,7 +76,7 @@ def give_hint(initial_prompt, user_response, hint_number, key, run_directory):
     hint_prompt_text = f"Given that the original idea was '{initial_prompt}' and the user guessed '{user_response}', provide a refined description that narrows it down without directly revealing the answer."
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
             {"role": "system",
              "content": 'You are a helpful computer assistant that provides refined descriptions for image generation.'},
