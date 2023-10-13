@@ -28,16 +28,12 @@
     "img": "alienastardust.png"
 },
 {
-    "name": "Orion Starflame",
-    "bio": "Cosmic wanderer with a heart full of stardust. Seeking a partner for interstellar adventures and deep conversations. Let's explore the universe and share stories under a canopy of galaxies. Swipe right if you're ready to embark on a journey beyond the stars.",
-    "interests": [
-    "Interstellar adventures",
-    "Stellar storytelling",
-    "Galactic campfires"
-    ],
-    "planetName": "Nebula-Realm",
-    "age": "250 star cycles",
-    "alien-id": "5",
+    "name": "Stellara Starshine",
+    "bio": "Galactic model by day, disco-light enthusiast by night. Proud owner of nature's own highlighter. Searching for someone who can keep up with my constellation vibes and isn't afraid of a little cosmic dust. Ever tried bioluminescent mood lighting? It's all natural, baby! Here for a good time, not a light year. Note: Don't mention 'Star Wars' on our first date. It's just a sore point in our interstellar community.",
+    "interests": ["Galactic gardening", "Meditation under black holes", "Practicing glow-in-the-dark yoga", "Starry-eyed stargazing"],
+    "planetName": "GlimmerGlow VIII",
+    "age": "75 solar flares and blazing",
+    "alien-id": "ShimmerShade47",
     "img": "orionstarflame.png"
 },
 {
@@ -302,9 +298,72 @@
     "age": "2.5 Millennia and counting",
     "alien-id": "902",
     "img": "lunarlark.png"
+},
+    {
+    "name": "Blazed Branko",
+    "bio": "Professional cloud-gazer from the luscious planet of Highnopia, where the foliage keeps things... interesting. Equipped with laser-focused eyes, which are, admittedly, usually unfocused. Can communicate exclusively through interpretive dance on weekends. Seeking someone who doesn’t mind getting lost in both conversation and the multiverse. Warning: Might occasionally forget we've met, but that’s just because every day feels like a first date with you.",
+    "interests": ["Botanical buffets", "Starlit snacking", "Slow-mo marathons", "Therapeutic tree-hugging", "Astral aromatherapy"],
+    "planetName": "Highnopia",
+    "age": "420 Light years young",
+    "alien-id": "42069",
+    "img": "blazed_branko.jpeg"
+},
+    {
+    "name": "Elegant Elara",
+    "bio": "From the posh galaxies of Upper Stratospherica, I'm a classically trained intergalactic guitarist. With a head full of dreams (and let's be real, quite an expansive forehead), I appreciate the finer nebulae in life. I wear my vertebrae on the outside because I believe in being transparent about my feelings. Seeking someone to join me at cosmic concerts and zero-gravity wine tastings. Please note: my eyesight is exceptional - I will definitely notice if you wear the same space suit twice.",
+    "interests": ["Cosmic caviar tasting", "Gazing at underprivileged planets with sympathy", "Listening to meteor showers"],
+    "planetName": "Strumtopia",
+    "age": "180 Solar cycles and aging like fine wine",
+    "alien-id": "007Classica",
+    "img": "elegant_elara.jpeg"
+},
+  {
+    "name": "Squidley StarSurfer",
+    "bio": "Galactic surfer seeking someone to ride the cosmic waves with. With eight tentacles, I'm an expert multitasker, whether I'm brewing my space coffee or ... I'll let you fill in the blank. My bulbous head isn't just for show; it's full of romantic ideas and the universe's best pickup lines. Let's make waves together and maybe even have a dance on Saturn's rings. 😜",
+    "interests": ["Cosmic surfing", "Starbucks space lattes", "Moondust massages", "Tentacle tangos", "Flirting at light speed"],
+    "planetName": "OctoOceania",
+    "age": "50 Milky Ways old",
+    "alien-id": "008SquidStar",
+    "img": "squidley.jpeg"
+},
+    {
+    "name": "ScrabbleSpace Steve",
+    "bio": "Just touched down on Earth and trying to learn the lingo one tile at a time. Looking for a partner in (word)play. Not ready for another long warp-speed commitment – just got out of a millennium-long one. Let's keep it light, like the gravity on my home planet. Love cozy nights in with board games and a glowing fireplace (preferably green). PS: Will trade intergalactic secrets for high-scoring Scrabble words.",
+    "interests": ["Intergalactic Scrabble tournaments", "Green fireplaces", "Levitation yoga", "Cosmic karaoke"],
+    "planetName": "LexiconV",
+    "age": "3200 Earth years young",
+    "alien-id": "69WordWiz",
+    "img": "scrabblesteve.jpeg"
+},
+{
+    "name": "FisherFae Finley",
+    "bio": "Sensual aquatic enthusiast with a penchant for big catches. Can't resist a good goggle-eyed stare down, especially when it's with a fish. Looking for someone who's not afraid to dive deep, in conversation and the cosmic ocean. If you've got bait, I've got the passion. Pucker up – those fishy smooches are just practice for the real deal.",
+    "interests": ["Moonlit swims", "Intergalactic sushi-making", "Astronomical paddleboarding", "Underwater salsa dancing"],
+    "planetName": "MarinaVista VII",
+    "age": "200 tidal cycles (it's rude to ask!)",
+    "alien-id": "AquaticAdonis89",
+    "img": "finleyfishface.jpeg"
+},
+    {
+    "name": "Zoomer Zog",
+    "bio": "Galactic speedster with a passion for pushing limits 🚀. Zero to warp speed in 3 seconds flat! Looking for someone who can keep up on and off the racetrack. Fun fact: My goggles aren't just for racing—they also help me find that missing sock.",
+    "interests": ["Starlit drag races", "Quantum mechanics (the fun kind)", "Afterburner chili cook-offs", "Late-night nebula drifts"],
+    "planetName": "Fastlane-5",
+    "age": "230 orbits but feels like 20",
+    "alien-id": "RaceFaceAceSpace",
+    "img": "zoomer-zog.png"
+},
+    {
+    "name": "Tex Galaxtar",
+    "bio": "Intergalactic cowboy with a penchant for riding comets and wrangling rogue asteroids. Dual hearts mean I can love twice as hard, but just for one galactic night. Got a smile that can light up a nebula and a dino-steed that's always up for a midnight star rodeo. Looking for hookups or FWB only.",
+    "interests": ["Star lassoing competitions", "Moonlit square dances", "Nebula BBQs", "Cosmic rodeos"],
+    "planetName": "Lonestar-7",
+    "age": "350 orbits young",
+    "alien-id": "CosmicCowpoke",
+    "img": "tex-galaxtar.png"
 }
 
-]
+    ]
 }
 
 
