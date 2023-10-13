@@ -388,7 +388,59 @@
     "age": "200 pulsars and pumping",
     "alien-id": "StarlitShuffler",
     "img": "glowria-nebulaze.png"
+},
+    {
+    "name": "Balloonie Bop",
+    "bio": "Hey there! I'm Balloonie Bop. My top half might scream 'party in the sky', but my lower half is all about that grounded boogie. I've got a thing for high-altitude adventures and starry nights. My stretchy arms are great for long-distance high fives and reaching snacks on tall shelves. Searching for someone who won't burst my bubble but will join in my cosmic dance.",
+    "interests": ["Gravity-defying dance moves", "Galactic balloon festivals", "Stellar string twirling", "Inflatable interplanetary concerts"],
+    "planetName": "Floatopia",
+    "age": "As vintage as the stripes on my body",
+    "alien-id": "92",
+    "img": "ballooniebop.png"
+},
+{
+    "name": "Timber Tav",
+    "bio": "How's it going? Timber Tav here, and yes, I'm as solid as I look. I'm all about keeping things casual and being the supportive type. Looking for a fun time with no strings attached. I might be a table by day, but by night, I've got the moves. Not into long-term commitments, but if you need a sturdy companion for a night, I'm your alien. PS: I've got an eye for style and another for, well, just about everything.",
+    "interests": ["Sporadic space salsa dancing", "Moonlit wood polishing", "One-planet picnics", "Short-term cosmic connections"],
+    "planetName": "Lumbertopia",
+    "age": "Smooth as a freshly sanded surface",
+    "alien-id": "104",
+    "img": "timbertav.png"
+    },
+{
+    "name": "Banana Burt",
+    "bio": "Hey there! I'm Banana Burt, the sweet and tropical treat from beyond the stars. Ever wondered what's under these layers? Let's just say, peel away my shells and you might just find a surprise that's both a-peel-ing and satisfying. I'm ripe and ready for some fun, looking for someone who isn't afraid to slip into a good time. Let's go bananas together, but be careful – things can get slippery!",
+    "interests": ["Midnight banana boat rides", "Exploring the Milky Way (and other delicious galaxies)", "Tropical interstellar getaways", "Whispering dirty peel jokes under the moonlight"],
+    "planetName": "Bananoon",
+    "age": "918 growing seasons",
+    "alien-id": "69",
+    "img": "bananaburt.png"
+},
+    {
+    "name": "Giggly Gorp",
+    "bio": "Hey there, I'm Giggly Gorp. Don't let the goofy exterior fool you; inside, I'm all about those dry jokes that make tumbleweeds jealous. I might look like a party on the outside, but on the inside, I'm like a Monday morning meeting – but hey, some people are into that, right? If you're looking for someone who'll make you laugh and then bore you with the history of intergalactic paint drying techniques, I'm your alien. Let's find out if your level of fun matches my level of...well, not-so-fun.",
+    "interests": ["Watching meteor showers (literally watching, not wishing on them)", "Collecting interstellar stamps (yes, they're a thing)", "Analyze the humor structure of Earth's 'Dad Jokes'", "Hoverboard chess games"],
+    "planetName": "Monotonix Prime",
+    "age": "Ageless, like my humor",
+    "alien-id": "404",
+    "img": "gigglygorp.png"
+},
+    {
+  "name": "Cosmic Cal",
+  "age": "Chill, bro",
+  "planetName": "Milky Way's gnarliest beaches",
+  "bio": "Sup, dude? 🤙 They call me Cosmic Cal. Catching interstellar waves by moonlight, hunting for the gnarliest space tacos by day. My hair's wilder than a black hole, but my heart's as warm as a sunspot. Looking for someone to vibe with on this cosmic surfboard we call life. Let's ride the waves of the universe together!",
+  "interests": ["Galactic surfing", "Beach bonfires on Saturn", "Jamming to interstellar tunes"],
+  "img": "cosmic-cal.png"
+},
+    {
+    "name": "Punk Pulsar",
+    "bio": "Yo! I'm Punk Pulsar, the rocking enigma from the darkest corners of the cosmos. Behind this vivid mohawk and alien studs is a soul just waiting to groove to the gothic beats of the universe. Don't let my cold cosmic exterior fool you; deep down, I've got a galaxy of feelings, just waiting for the right being to tune into my frequency. Seeking a fellow cosmic wanderer who doesn’t mind my spikes but is ready to rock out at the edge of time.",
+    "interests": ["Late-night asteroid belt jams", "Stargazing from black holes", "Collecting space vinyls from vanished civilizations", "Headbanging to supernova explosions"],
+    "planetName": "MoHawktopia",
+    "age": "1,532 light cycles",
+    "alien-id": "420",
+    "img": "punkpulsar.png"
 }
-
     ]
 }
