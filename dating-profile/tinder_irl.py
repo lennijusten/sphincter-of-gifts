@@ -20,6 +20,9 @@ CHAT_TOLERANCE = random.randint(3, 5)
 # conversation history
 conversation_history = ""
 
+# alien
+alien = {}
+
 # outcome of the encounter, sets to true when the last message is a rejection (user does not receive gift)
 rejected = False
 
@@ -36,6 +39,7 @@ def get_count():
     return count
 
 def parse_json():
+    global alien
     with open('./alien-profiles.json', 'r') as file:
         data = json.load(file)
     profiles = data["alienProfiles"]
@@ -49,12 +53,13 @@ def parse_json():
     age = selected_profile['age']
     img = selected_profile['img']
 
-    return {"name": name,
+    alien = {"name": name,
             "bio": bio,
             "interests": interests,
             "planet": planet_name,
             "age": age,
             "img": "img/" + img}
+    return alien
 
 def alien_traits(bio):
     input_text = bio
@@ -108,6 +113,15 @@ def pass_pickup_line():
     #     return True
     # else:
     #     return False
+    
+def make_limerick(conversation_history):
+    # get chatgpt to summarize the chat and date idea in one sentence
+    return openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "system", "content": "You are an fun AI assistant that specializes in flirty pickup lines. You love puns and wordplay."}, 
+                              {"role": "user", "content": "Write one short flirty seductive pickup line from an alien to a human."}
+                              ],
+                )["choices"][0]["message"]["content"]
 
 def print_ticket(prompt: str = "SET THE PROMPT"):
     from arduino import Arduino, gen_ticket_id

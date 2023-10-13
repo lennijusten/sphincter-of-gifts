@@ -27,13 +27,21 @@ def process():
         print(response)  # Print the response to console for now
 
         if (response != None):
+            print(end)
+            print(tinder_irl.rejected)
+            if end and not tinder_irl.rejected:
+                print("----------------\n\nENDING----------------\n\n")
+                # tinder_irl.print_ticket(tinder_irl.make_limerick(conversation_history))
+                print(tinder_irl.make_limerick(conversation_history))
             return jsonify({'response': response, 'end': end})
         else:
             return jsonify({'error': 'No message text provided'}), 400
 
     else: # CAN WE MAKE MESSAGES STOP SENDING HERE
+        print("----------------\n\nENDING----------------\n\n")
         if not tinder_irl.rejected:
-            tinder_irl.print_ticket("hello world")
+            # tinder_irl.print_ticket(tinder_irl.make_limerick(conversation_history))
+            print(tinder_irl.make_limerick(conversation_history))
         return jsonify({'end':end})
 
 if __name__ == '__main__':
