@@ -101,5 +101,14 @@
             "alien-id": "7",
             "img": "glimpsemclaughster.png"
         },
+        {
+            "name": "Vyne Temptasia",
+            "bio": "Sultry and sensuous, I'm an alien seductress with a deep affection for grapes in all their cosmic forms. Seeking a fellow grape enthusiast to savor the interstellar sweetness. Swipe right if you're ready to experience the grapevine of pleasure and cosmic connection.",
+            "interests": ["Grape seduction", "Intimate grape tastings", "Cosmic vineyards"],
+            "planetName": "Vinopia",
+            "age": "500 grape harvests",
+            "alien-id": "8",
+            "img": "vynetemptasia.png"
+        }
       ]
 }
