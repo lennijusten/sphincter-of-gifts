@@ -42,7 +42,6 @@ def parse_json():
     interests = selected_profile['interests']
     planet_name = selected_profile['planetName']
     age = selected_profile['age']
-    alien_id = selected_profile['alien-id']
     img = selected_profile['img']
 
     return {"name": name,
@@ -50,7 +49,6 @@ def parse_json():
             "interests": interests,
             "planet": planet_name,
             "age": age,
-            "id": alien_id,
             "img": "img/" + img}
 
 def alien_traits(bio):
@@ -122,8 +120,8 @@ def generate_role_prompt(alien):
     print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
-    You are not very familiar with Earth culture, but appreciate and are curious about it.
-    You are confident, funny, flirty and love to reference sex. """ + \
+    You are not very familiar with Earth culture, but appreciate it.
+    Assume an eccentric alien personality based on your traits who responds with high temperature hot takes, sometimes the sexy kind.""" + \
     " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
     " You like " + ' and '.join(alien["interests"]) + ". "
 
