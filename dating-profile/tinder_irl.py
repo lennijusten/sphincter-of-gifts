@@ -70,24 +70,33 @@ def respond_to_user(prompt, role_prompt):
     global count
     global CHAT_TOLERANCE
     global conversation_history
-    if (count <= CHAT_TOLERANCE):
-        input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
-        response = openai.ChatCompletion.create(
-                      model="gpt-3.5-turbo",
-                      messages=[{"role": "system", "content": role_prompt},
-                                {"role": "user", "content": input_text}
-                      ])
+    # if (count <= CHAT_TOLERANCE): # not necessary because this is checked in app.py and in while loop
+    input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
+    response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "system", "content": role_prompt},
+                            {"role": "user", "content": input_text}
+                    ])
 
-        result = response["choices"][0]["message"]["content"]
+    result = response["choices"][0]["message"]["content"]
 
-        conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
-        count += 1
-        if (count >= CHAT_TOLERANCE):
-            end = True
-            #PRINT THE TICKET HERE
-        else:
-            end = False
-        return result, end
+    conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
+    count += 1
+    if (count >= CHAT_TOLERANCE):
+        end = True
+        # get chatgpt to summarize the chat and date idea in one sentence
+        summary = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "system", "content": "You are an fun AI assistant that summarizes human-alien dating app conversations \
+                        and date idea in one sentence. The conversation history is: "+ conversation_history}, 
+                              {"role": "user", "content": "Describe the outcome of the conversation and date idea in one funny short limerick in the third person."}
+                              ],
+                    )
+        print("SUMMARY: "+summary["choices"][0]["message"]["content"])
+        #PRINT THE TICKET HERE
+    else:
+        end = False
+    return result, end
 
 def get_pickup_line():
     user_input = input("What's your best pickup line for this alien?: ")
