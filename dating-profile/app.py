@@ -33,7 +33,7 @@ def process():
                 print("----------------\n\nENDING----------------\n\n")
                 # tinder_irl.print_ticket(tinder_irl.make_limerick(conversation_history))
                 print(tinder_irl.make_limerick(conversation_history))
-            return jsonify({'response': response, 'end': end})
+            return jsonify({'response': response, 'end': end, 'rejected': tinder_irl.rejected})
         else:
             return jsonify({'error': 'No message text provided'}), 400
 
@@ -42,7 +42,7 @@ def process():
         if not tinder_irl.rejected:
             # tinder_irl.print_ticket(tinder_irl.make_limerick(conversation_history))
             print(tinder_irl.make_limerick(conversation_history))
-        return jsonify({'end':end})
+        return jsonify({'end':end, 'rejected': tinder_irl.rejected})
 
 if __name__ == '__main__':
     app.run(debug=True)

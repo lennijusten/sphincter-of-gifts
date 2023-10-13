@@ -93,10 +93,17 @@
     </li>
 </div>
 
-<div id="popupModal" class="modal">
+<div id="popupAcceptModal" class="modal">
     <div class="modal-content">
-        <p>Congratulations, you intergalactic rizzler! Enjoy your free drink!</p>
-        <button id="refreshButton">Receive my Gift from the Sphincter</button>
+        <p>Congratulations, you intergalactic rizzler! Enjoy your free drink! Be patient while the Sphincter excretes your Gift...</p>
+        <button id="refreshButtonAccept">Click Me When Done</button>
+    </div>
+</div>
+
+<div id="popupRejectModal" class="modal">
+    <div class="modal-content">
+        <p>Sorry, it seems like you ain't got rizz, bud. Keep your earlthy chin up and maybe stick to dating your terrestrial peers.</p>
+        <button id="refreshButtonReject">Click Me When Done</button>
     </div>
 </div>
 
@@ -173,10 +180,15 @@
                             //endMessage.draw();
                             // Show the modal
                             // wait 2 seconds before showModal
-                            setTimeout(showModal, 2000);
+                            if (response.rejected) {
+                                setTimeout(showRejectModal, 2000);
+                            } else {
+                            setTimeout(showAcceptModal, 2000);
+                        }
                             
                             // Add a click event listener to the "Receive my Gift from the Sphincter" button
-                            document.getElementById("refreshButton").addEventListener("click", refreshPage);
+                            document.getElementById("refreshButtonAccept").addEventListener("click", refreshPage);
+                            document.getElementById("refreshButtonReject").addEventListener("click", refreshPage);
                         }                        
                     },
                     error: function(error) {
@@ -199,8 +211,13 @@
         });
 
         // Function to show the modal
-        function showModal() {
-            var modal = document.getElementById("popupModal");
+        function showAcceptModal() {
+            var modal = document.getElementById("popupAcceptModal");
+            modal.style.display = "block";
+        }
+        // Function to show the modal
+        function showRejectModal() {
+            var modal = document.getElementById("popupRejectModal");
             modal.style.display = "block";
         }
 
