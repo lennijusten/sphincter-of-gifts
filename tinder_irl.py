@@ -6,7 +6,7 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = "YOUR API"
+openai.api_key = "API KEY"
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
@@ -15,7 +15,6 @@ def parse_json():
 
     selected_profile = random.choice(profiles)
 
-    print(selected_profile)
     name = selected_profile['name']
     bio = selected_profile['bio']
     interests = selected_profile['interests']
@@ -30,22 +29,24 @@ def parse_json():
             "age": age,
             "id": alien_id}
 
-def alien_interests():
-    return ["babes", "fish", "bedtime stories"]
+def alien_traits(bio):
+    input_text = bio
+    response = openai.ChatCompletion.create(
+                  model="gpt-3.5-turbo",
+                  messages=[{"role": "system", "content": 'You are an AI assistant that parses dating app bios, \
+                  and can distill them down to three words separated by commas that describe the person whose bio that is.'},
+                            {"role": "user", "content": input_text}
+                  ])
 
-def respond_to_user(prompt, conversation_history):
+    result = response["choices"][0]["message"]["content"]
+    values_list = [value.strip() for value in result.split(',')]
+    return values_list
+
+def respond_to_user(prompt, conversation_history, role_prompt):
     input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
     response = openai.ChatCompletion.create(
                   model="gpt-3.5-turbo",
-                  messages=[{"role": "system", "content": 'You are an alien looking for love, \
-                  but you have high standards! You are chatting with the user on a dating app. \
-                  You are interested in the User as a potential mate because you find them sexy. \
-                  You are not very familiar with Earth culture, but appreciate it. \
-                  You are cocky and funny and like to reference sex. \
-                  You have many alien hobbies and personality traits. \
-                  Your messages must be under 200 characters. \
-                  Reference the user\'s message in your reply. \
-                  Only give the words that you would say to the user.'},
+                  messages=[{"role": "system", "content": role_prompt},
                             {"role": "user", "content": input_text}
                   ])
 
@@ -60,7 +61,7 @@ def get_pickup_line():
     # return get_user_guess_from_frontend()
 
 def get_message():
-    user_input = input()
+    user_input = input("You: ")
     return user_input
 
 def pass_pickup_line():
@@ -87,16 +88,35 @@ def print_to_receipt_printer(content):
 def main_game_loop():
     alien = parse_json()
     print(alien["name"] + " from " + alien["planet"])
-    # print(alien_age())
-    #
-    # conversation_history = ""
-    #
-    # for i in range(3):
-    #     result = respond_to_user(get_pickup_line(), conversation_history)
-    #     print(result[0])
-    #     conversation_history = result[1]
-    #
-    # print(conversation_history)
+    print(alien["age"])
+
+    print(alien_traits(alien["bio"]))
+
+    role_prompt = """You are an alien looking for love, but you have high standards!
+    You are chatting with the user on a dating app.
+    You are interested in the User as a potential mate because you find them sexy.
+    You are not very familiar with Earth culture, but appreciate it.
+    You are confident and funny and like to reference sex. """ + \
+    " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
+    " You like " + ' and '.join(alien["interests"]) + ". " + \
+    """Your messages must be under 200 characters.
+    Reference the user's message in your reply.
+    Reference your traits and your likes.
+    Only give the words that you would say to the user.
+    Do not write your role. """
+
+    print(role_prompt)
+
+    conversation_history = ""
+
+    result = respond_to_user(get_pickup_line(), conversation_history, role_prompt)
+    print(result[0])
+    conversation_history = result[1]
+
+    for i in range(3):
+        result = respond_to_user(get_message(), conversation_history, role_prompt)
+        print(result[0])
+        conversation_history = result[1]
 
     # get_pickup_line()
     #
