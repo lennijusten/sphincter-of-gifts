@@ -31,10 +31,9 @@ def process():
         else:
             return jsonify({'error': 'No message text provided'}), 400
 
-        if (end): # DISABLE THE SEND MESSAGE BUTTON HERE
-            print("DISABLE THE SEND MESSAGE NOW")
-            pass
     else: # CAN WE MAKE MESSAGES STOP SENDING HERE
+        if not tinder_irl.rejected:
+            tinder_irl.print_ticket("hello world")
         return jsonify({'end':end})
 
 if __name__ == '__main__':

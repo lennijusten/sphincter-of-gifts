@@ -172,8 +172,9 @@
                             //});
                             //endMessage.draw();
                             // Show the modal
-                            showModal();
-
+                            // wait 2 seconds before showModal
+                            setTimeout(showModal, 2000);
+                            
                             // Add a click event listener to the "Receive my Gift from the Sphincter" button
                             document.getElementById("refreshButton").addEventListener("click", refreshPage);
                         }                        
