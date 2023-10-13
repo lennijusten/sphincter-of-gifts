@@ -367,7 +367,7 @@
     "name": "Lumina Flexara",
     "bio": "Zen master by day, cosmic contortionist by night. I've mastered stretches in 7 dimensions – your earthly yoga has nothing on me! Let's align our chakras... and maybe more.",
     "interests": ["Galactic guided meditations", "Black hole breath work", "Intergalactic interpretive dance", "Zero-gravity tai chi"],
-    "planet": "Omnia-Prime",
+    "planetName": "Omnia-Prime",
     "age": "275 light years (but I've got the elasticity of a 50 light year old)",
     "alienid": "YogaGalaxtica"
 },
@@ -392,5 +392,3 @@
 
     ]
 }
-
-
