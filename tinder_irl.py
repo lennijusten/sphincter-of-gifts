@@ -5,22 +5,48 @@ import shutil
 import os
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = "YOUR API"
 
-def generate_bio():
-    prompt = """Write an online dating bio. Do not use alien-themed language.
-    Keep it under 100 characters. Make it weird and cultured but do not use those words.
-    Do not make every sentence alien-themed.
-    Do not use hashtags or emojis."""
+def alien_name():
+    with open('./names.txt', 'r') as file:
+        names = file.readlines()
+    name = random.sample(names, 1)
+    name = name[0].strip()
+    return name
 
+def alien_location():
+    with open('./planets.txt', 'r') as file:
+        planets = file.readlines()
+    planet = random.sample(planets, 1)
+    planet = planet[0].strip()
+    return planet
+
+def alien_age():
+    age = random.randint(1, 999)
+    with open('./time-units.txt', 'r') as file:
+        units = file.readlines()
+    unit = random.sample(units, 1)
+    unit = unit[0].strip()
+    return str(age) + " " + str(unit)
+
+def tinder_bio():
+    pass
+
+def respond_to_user(prompt, conversation_history):
+    input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
     response = openai.ChatCompletion.create(
                   model="gpt-3.5-turbo",
-                  messages=[{"role": "system", "content": 'You are looking for love, writing your online dating bio, \
-                  but you have high standards and think you are way hotter than almost everyone on the app. \
-                  You are whimsical and artsy.'},
-                            {"role": "user", "content": prompt}
+                  messages=[{"role": "system", "content": 'You are an alien looking for love, \
+                  but you have high standards! You are chatting with the user on a dating app. \
+                  You are interested in the User as a potential mate because you find them sexy. \
+                  You are not very familiar with Earth culture, but appreciate it. \
+                  You are very funny and like to reference sex. \
+                  You have many alien hobbies and personality traits. Your messages must be under 200 characters. \
+                  Reference the user\'s message in your reply. Only give the words that you would say to the user.'},
+                            {"role": "user", "content": input_text}
                   ])
 
+    print(input_text)
     result = response["choices"][0]["message"]["content"]
     return result
 
@@ -52,14 +78,19 @@ def print_to_receipt_printer(content):
 
 
 def main_game_loop():
-    print(generate_bio())
+    print(alien_name() + " from " + alien_location())
+    print(alien_age())
 
-    get_pickup_line()
+    conversation_history = ""
 
-    if (pass_pickup_line()):
-        print("SUCCESS! smutty response here and receipt print.")
-    else:
-        print("You failed (:")
+    print(respond_to_user(get_pickup_line(), conversation_history))
+
+    # get_pickup_line()
+    #
+    # if (pass_pickup_line()):
+    #     print("SUCCESS! smutty response here and receipt print.")
+    # else:
+    #     print("You failed (:")
 
 
 def convert_image_to_ascii(image_path):
