@@ -14,6 +14,9 @@ port = ""
 # counter for conversation
 count = 0
 
+# when to end conversation
+CHAT_TOLERANCE = random.randint(3, 5)
+
 # conversation history
 conversation_history = ""
 
@@ -65,8 +68,9 @@ def alien_traits(bio):
 
 def respond_to_user(prompt, role_prompt):
     global count
+    global CHAT_TOLERANCE
     global conversation_history
-    if (count < 3):
+    if (count <= CHAT_TOLERANCE):
         input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
         response = openai.ChatCompletion.create(
                       model="gpt-3.5-turbo",
@@ -78,7 +82,7 @@ def respond_to_user(prompt, role_prompt):
 
         conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
         count += 1
-        if (count == 3):
+        if (count >= CHAT_TOLERANCE):
             end = True
             #PRINT THE TICKET HERE
         else:
@@ -95,10 +99,11 @@ def get_message():
     return user_input
 
 def pass_pickup_line():
-    if random.random() < 0.5:
-        return True
-    else:
-        return False
+    return random.choice([True, False])
+    # if random.random() < 0.5:
+    #     return True
+    # else:
+    #     return False
 
 def print_ticket(prompt: str = "SET THE PROMPT"):
     from arduino import Arduino, gen_ticket_id
@@ -113,21 +118,28 @@ def print_ticket(prompt: str = "SET THE PROMPT"):
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
+    print(CHAT_TOLERANCE)
     print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
-    You are not very familiar with Earth culture, but appreciate it.
-    You are confident and funny and like to reference sex. """ + \
+    You are not very familiar with Earth culture, but appreciate and are curious about it.
+    You are confident, funny, flirty and love to reference sex. """ + \
     " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
     " You like " + ' and '.join(alien["interests"]) + ". "
 
     global count
-    if (count == 2):
+    if (count <= CHAT_TOLERANCE):
         if (pass_pickup_line()):
-            role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Ask them on a date for tomorrow night seductively. "
+            if count == CHAT_TOLERANCE - 1:
+                role_prompt += "You want to mate with the User because you find them sexy. You really like what the user wrote. Ask them on a date for tomorrow night seductively. "
+            else: 
+                role_prompt += "You are interested in the User as a potential mate because you find them sexy. You are curious what the user wrote. Flirt with them seductively in a funny or unusual way. "
         else:
-            role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them rudely, but in character. "
-    print(role_prompt)
+            if count == CHAT_TOLERANCE - 1:
+                role_prompt += "You don't like the user and don't want to mate with them. You find them ugly and think they have a bad personality. Reject them rudely and say goodbye, but in character. "
+            else:
+                role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them rudely, but in character. "
+    # print(role_prompt)
 
     role_prompt += """Your messages must be under 300 characters.
     Reference the user's message in your reply.
@@ -151,6 +163,8 @@ def main_game_loop():
         print(role_prompt)
         result = respond_to_user(get_message(), role_prompt)
         print(result[0])
+        if result[-1]: # end
+            break
         # print(conversation_history)
 
     # get_pickup_line()
