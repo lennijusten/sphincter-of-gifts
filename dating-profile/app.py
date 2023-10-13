@@ -3,6 +3,7 @@ import tinder_irl
 
 app = Flask(__name__)
 alien_profile = None  # Global variable to hold the selected alien profile
+conversation_history = "" #Global variable to hold the conversation history
 
 @app.route('/')
 def index():
@@ -21,7 +22,7 @@ def process():
     conversation_history = ""
     role_prompt = tinder_irl.generate_role_prompt(alien_profile)  # Generate role prompt based on alien profile
     response, _ = tinder_irl.respond_to_user(prompt, conversation_history, role_prompt)
-    
+
     print(response)  # Print the response to console for now
 
     return jsonify({'response': response})

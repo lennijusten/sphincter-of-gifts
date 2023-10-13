@@ -34,7 +34,7 @@
     </style>
 </head>
 <div class="bio_window">
-    <img src="{{ profile['image'] }}" alt="Profile Image" class="profile-image">
+    <img src="{{ url_for('static', filename=profile['img']) }}" alt="Profile IMG" class="profile-image">
     <div class="profile-info">
         <div class="profile-name">{{ profile['name'] }}</div>
         <div class="profile-planet">{{ profile['planet'] }}</div>
@@ -145,4 +145,3 @@
 </script>
 </body>
 </html>
-
