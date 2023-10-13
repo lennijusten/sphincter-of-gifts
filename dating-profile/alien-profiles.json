@@ -6,7 +6,8 @@
             "interests": ["Zero-gravity workouts", "Galactic travel", "Nebula-9 protein shakes"],
             "planetName": "Musculon-IV",
             "age": "150 megaflexons",
-            "alien-id": "midjourney-1"
+            "alien-id": "1",
+            "img": "zarkon.png"
         },
         {
             "name": "Zarkon Flexor2",
@@ -14,7 +15,64 @@
             "interests": ["Zero-gravity workouts", "Galactic travel", "Nebula-9 protein shakes"],
             "planetName": "Musculon-IV",
             "age": "150 megaflexons",
-            "alien-id": "midjourney-1"
-        }
+            "alien-id": "1.1",
+            "img": "zarkon.png"
+        },
+        {
+            "name": "Stellara Nova",
+            "bio": "Wandering the cosmos in search of the perfect stargazing partner. I'll show you constellations from every corner of the universe. Let's cuddle under the intergalactic night sky and make wishes upon shooting stars!",
+            "interests": ["Stargazing", "Interstellar picnics", "Shooting star wishes"],
+            "planetName": "Celestia-Prime",
+            "age": "500 stellar cycles",
+            "alien-id": "2",
+            "img": "stellara.png"
+        },
+        {
+            "name": "Aliena Stardust",
+            "bio": "Passionate explorer of celestial art forms and kaleidoscopic wonders. Seeking a muse to create cosmic masterpieces with. Join me in painting the galaxies with our imagination and let's leave a trail of stardust in our wake.",
+            "interests": ["Celestial artistry", "Kaleidoscopic adventures", "Stardust trails"],
+            "planetName": "Chroma-Nebula",
+            "age": "300 cosmic cycles",
+            "alien-id": "4",
+            "img": "alienastardust.png"
+        },
+        {
+            "name": "Orion Starflame",
+            "bio": "Cosmic wanderer with a heart full of stardust. Seeking a partner for interstellar adventures and deep conversations. Let's explore the universe and share stories under a canopy of galaxies. Swipe right if you're ready to embark on a journey beyond the stars.",
+            "interests": ["Interstellar adventures", "Stellar storytelling", "Galactic campfires"],
+            "planetName": "Nebula-Realm",
+            "age": "250 star cycles",
+            "alien-id": "5",
+            "img": "orionstarflame.png"
+        },
+        {
+            "name": "Cosmo Quirkster",
+            "bio": "The universe's most curious prankster, searching for someone to share cosmic giggles and quirky adventures. Let's pull practical jokes on comets and share interstellar puns. Swipe right if you're ready to giggle your way through the galaxies.",
+            "interests": ["Cosmic pranks", "Interstellar humor", "Comedic asteroids"],
+            "planetName": "Jestoria",
+            "age": "2000 cosmic chuckles",
+            "alien-id": "7",
+            "img": "cosmoquirkster.png"
+        },
+        {
+            "name": "Stella Lunar",
+            "bio": "Galactic maverick with an affinity for late-night rendezvous on the moon's surface. Searching for an equally daring soul to uncover the mysteries of the cosmos. Let's unravel the secrets of the stars and share moonlit secrets. Swipe right for an interstellar adventure that will leave you starstruck!",
+            "gender": "Female",
+            "interests": ["Late-night lunar escapades", "Stellar mysteries", "Moonlit secrets"],
+            "planetName": "Lunaris",
+            "age": "250 lunar cycles",
+            "alien-id": "10",
+            "img": "stellalunar.png"
+        },
+        {
+            "name": "Quasar Quester",
+            "bio": "Interstellar explorer with a laid-back approach to life among the stars. Seeking a fellow space enthusiast to share chill moments and cosmic vibes. Let's chase stardust clouds and bask in the glow of nebulae. Swipe right if you're ready to light up the galaxy!",
+            "gender": "Male",
+            "interests": ["Stardust clouds", "Nebulae meditation", "Cosmic chill"],
+            "planetName": "Quasaria",
+            "age": "350 starlight cycles",
+            "alien-id": "11",
+            "img": "quasarquester.png"
+        },
       ]
 }
