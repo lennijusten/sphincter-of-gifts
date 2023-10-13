@@ -163,6 +163,24 @@
             "age": "500 grape harvests",
             "alien-id": "8",
             "img": "vynetemptasia.png"
+        },
+        {
+            "name": "Arnold",
+            "bio": "Professional by day, cosmic conqueror by night. On the surface, I'm all about corporate meetings and data analysis, but secretly, I have a peculiar passion for collecting rare alien socks. Swipe right if you're ready to explore my sock drawer and uncover the interstellar secrets within.",
+            "interests": ["Data analysis", "Corporate life", "Alien sock collection"],
+            "planetName": "Sternortex",
+            "age": "400 corporate cycles",
+            "alien-id": "9",
+            "img": "arnold.png"
+        },
+        {
+            "name": "Prof. Xerio Intelectro",
+            "bio": "A connoisseur of the cosmic intellect, I have a penchant for quarks and quantum mechanics. Only the most erudite minds need apply, for I seek a fellow academic elite to explore the deepest crevices of interstellar knowledge. Swipe right if you can match wits with the galaxies' foremost intellects.",
+            "interests": ["Quantum physics", "Theoretical cosmology", "Advanced astrophysics"],
+            "planetName": "Scholarion",
+            "age": "1,000 theses defended",
+            "alien-id": "10",
+            "img": "professerxerio.png"
         }
       ]
 }

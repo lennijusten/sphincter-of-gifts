@@ -6,7 +6,7 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Port for the arduino
 port = ""
@@ -88,6 +88,7 @@ def print_ticket(prompt: str = "SET THE PROMPT"):
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
+    print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
     You are not very familiar with Earth culture, but appreciate it.
