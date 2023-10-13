@@ -5,8 +5,7 @@ import shutil
 import os
 
 # Initialize the OpenAI API client
-# openai.api_key = "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"
-openai.api_key = "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"
+openai.api_key = "YOUR API"
 
 def alien_name():
     with open('./names.txt', 'r') as file:
