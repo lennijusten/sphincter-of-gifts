@@ -5,7 +5,7 @@ import shutil
 import os
 
 # Initialize the OpenAI API client
-openai.api_key = "YOUR API"
+openai.api_key = "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"
 
 def alien_name():
     with open('./names.txt', 'r') as file:
@@ -30,7 +30,10 @@ def alien_age():
     return str(age) + " " + str(unit)
 
 def tinder_bio():
-    pass
+    return "this bio sucks"
+
+def alien_interests():
+    return ["babes", "fish", "bedtime stories"]
 
 def respond_to_user(prompt, conversation_history):
     input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
@@ -40,27 +43,33 @@ def respond_to_user(prompt, conversation_history):
                   but you have high standards! You are chatting with the user on a dating app. \
                   You are interested in the User as a potential mate because you find them sexy. \
                   You are not very familiar with Earth culture, but appreciate it. \
-                  You are very funny and like to reference sex. \
-                  You have many alien hobbies and personality traits. Your messages must be under 200 characters. \
-                  Reference the user\'s message in your reply. Only give the words that you would say to the user.'},
+                  You are cocky and funny and like to reference sex. \
+                  You have many alien hobbies and personality traits. \
+                  Your messages must be under 200 characters. \
+                  Reference the user\'s message in your reply. \
+                  Only give the words that you would say to the user.'},
                             {"role": "user", "content": input_text}
                   ])
 
-    print(input_text)
     result = response["choices"][0]["message"]["content"]
-    return result
+
+    conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
+    return result, conversation_history
 
 def get_pickup_line():
     user_input = input("What's your best pickup line for this alien?: ")
     return user_input
     # return get_user_guess_from_frontend()
 
+def get_message():
+    user_input = input()
+    return user_input
+
 def pass_pickup_line():
     if random.random() < 0.3:
         return True
     else:
         return False
-
 
 def get_user_guess_from_frontend():
     # This function should interact with the frontend to get the user's guess
@@ -83,7 +92,12 @@ def main_game_loop():
 
     conversation_history = ""
 
-    print(respond_to_user(get_pickup_line(), conversation_history))
+    for i in range(3):
+        result = respond_to_user(get_pickup_line(), conversation_history)
+        print(result[0])
+        conversation_history = result[1]
+
+    print(conversation_history)
 
     # get_pickup_line()
     #
