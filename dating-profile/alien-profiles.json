@@ -73,6 +73,33 @@
             "age": "65 cosmic cycles",
             "alien-id": "3",
             "img": "ziggyquirkster.png"
-        }
+        },
+        {
+            "name": "Petal Pawsniffer",
+            "bio": "Passionate pet lover from the furthest reaches of the galaxy. Obsessed with interstellar furballs and alien critters. Seeking a kindred spirit who shares my love for cuddly companions. Swipe right if you're ready for cosmic pet playdates and intergalactic walks with our fuzzy friends.",
+            "interests": ["Interstellar furballs", "Alien critters", "Cosmic pet playdates"],
+            "planetName": "Furtopia",
+            "age": "200 lunar orbits",
+            "alien-id": "5",
+            "img": "petalpawsniffer.png"
+        },
+        {
+            "name": "Zylok Runeflare",
+            "bio": "Blazing across galaxies, I'm an interstellar sprinter who thrives on speed and cosmic competition. Looking for a fellow enthusiast to race through the cosmos and conquer new dimensions together. Swipe right if you're ready to feel the thrill of intergalactic sprints and share the finish line of our journey.",
+            "interests": ["Intergalactic sprints", "Cosmic competition", "Exploring new dimensions"],
+            "planetName": "Velocitron",
+            "age": "130 solar laps",
+            "alien-id": "6",
+            "img": "zylokruneflare.png"
+        },
+        {
+            "name": "Glimpse McLaughster",
+            "bio": "Recently single after a cosmic divorce. New to the interstellar dating scene and ready to explore the cosmic comedy of love. Looking for someone to share laughter and a good cosmic brew with. Swipe right if you're ready for some out-of-this-world humor and late-night stargazing chats.",
+            "interests": ["Cosmic comedy", "Laughter therapy", "Late-night stargazing"],
+            "planetName": "Humorhaven",
+            "age": "2,000 lunar chuckles",
+            "alien-id": "7",
+            "img": "glimpsemclaughster.png"
+        },
       ]
 }
