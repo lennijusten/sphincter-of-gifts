@@ -361,6 +361,33 @@
     "age": "350 orbits young",
     "alien-id": "CosmicCowpoke",
     "img": "tex-galaxtar.png"
+},
+    {
+    "img": "mystic-meditator.png",
+    "name": "Lumina Flexara",
+    "bio": "Zen master by day, cosmic contortionist by night. I've mastered stretches in 7 dimensions – your earthly yoga has nothing on me! Let's align our chakras... and maybe more.",
+    "interests": ["Galactic guided meditations", "Black hole breath work", "Intergalactic interpretive dance", "Zero-gravity tai chi"],
+    "planet": "Omnia-Prime",
+    "age": "275 light years (but I've got the elasticity of a 50 light year old)",
+    "alienid": "YogaGalaxtica"
+},
+    {
+    "name": "Specky Starling",
+    "bio": "Ever wondered what's beyond the black holes or the solution to that nagging quasar equation? Worry not, I'm your nerd! Still in my prime with a touch of innocence (yes, still a virgin). Maybe too young for this app, but my heart is older than the oldest galaxies. Seeking someone to teach me the ways of intergalactic love!",
+    "interests": ["Stargazing with my magnifying goggles", "Quantum computing poetry", "Debating Pluto's planet status", "Collecting rare space pebbles"],
+    "planetName": "Nerdtopia",
+    "age": "25 light years young",
+    "alien-id": "StarStruckNerd",
+    "img": "specky-starling.png"
+},
+    {
+    "name": "Glowria Nebulaze",
+    "bio": "Dropping in from the galactic dance floors just to catch the vibes at Burning Man and see what this 'LSD' fuss is all about. My headgear? It's not just a fashion statement; it's also my personal DJ, playing the sickest beats from across the cosmos. Be my rave buddy?",
+    "interests": ["Cosmic dubstep", "Stellar light shows", "Galactic glow stick crafting", "Intergalactic EDM festivals"],
+    "planetName": "RaveNebula-808",
+    "age": "200 pulsars and pumping",
+    "alien-id": "StarlitShuffler",
+    "img": "glowria-nebulaze.png"
 }
 
     ]
