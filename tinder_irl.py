@@ -6,7 +6,7 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = "API KEY"
+openai.api_key = ""
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
@@ -65,74 +65,62 @@ def get_message():
     return user_input
 
 def pass_pickup_line():
-    if random.random() < 0.3:
+    if random.random() < 0.5:
         return True
     else:
         return False
 
-def get_user_guess_from_frontend():
-    # This function should interact with the frontend to get the user's guess
-    pass
+def print_ticket(prompt: str = "SET THE PROMPT"):
+    if "|" in prompt:
+        print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
+        prompt = prompt.replace("|", "")
 
-
-def print_receipt_with_message(image_ascii, message):
-    # Placeholder to print to a receipt printer
-    print_to_receipt_printer(image_ascii, message)
-
-
-def print_to_receipt_printer(content):
-    # This function should interact with the receipt printer and print the content
-    pass
-
+    arduino = Arduino(port)
+    arduino.wait_until_ready()
+    arduino.recv().decode('utf-8')
+    arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def main_game_loop():
     alien = parse_json()
     print(alien["name"] + " from " + alien["planet"])
     print(alien["age"])
 
-    print(alien_traits(alien["bio"]))
+    # print(alien_traits(alien["bio"]))
 
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
-    You are interested in the User as a potential mate because you find them sexy.
     You are not very familiar with Earth culture, but appreciate it.
     You are confident and funny and like to reference sex. """ + \
     " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
-    " You like " + ' and '.join(alien["interests"]) + ". " + \
-    """Your messages must be under 200 characters.
+    " You like " + ' and '.join(alien["interests"]) + ". "
+
+    if (pass_pickup_line()):
+        print("accept")
+        role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Try to seduce them. "
+    else:
+        print("reject")
+        role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them bombastically. "
+
+    role_prompt += """Your messages must be under 300 characters.
     Reference the user's message in your reply.
-    Reference your traits and your likes.
+    Reference your traits and your likes if they are relevant.
     Only give the words that you would say to the user.
     Do not write your role. """
 
-    print(role_prompt)
+    # print(role_prompt)
 
     conversation_history = ""
 
     result = respond_to_user(get_pickup_line(), conversation_history, role_prompt)
     print(result[0])
     conversation_history = result[1]
-
-    for i in range(3):
-        result = respond_to_user(get_message(), conversation_history, role_prompt)
-        print(result[0])
-        conversation_history = result[1]
+    #
+    # for i in range(3):
+    #     result = respond_to_user(get_message(), conversation_history, role_prompt)
+    #     print(result[0])
+    #     conversation_history = result[1]
 
     # get_pickup_line()
-    #
-    # if (pass_pickup_line()):
-    #     print("SUCCESS! smutty response here and receipt print.")
-    # else:
-    #     print("You failed (:")
-
-
-def convert_image_to_ascii(image_path):
-    # Convert the image to ASCII here and return as string
-    return "ASCII Representation of Image"
-
-def display_image_to_user(image_url):
-    # Placeholder function to display the generated image on the GUI
-    pass
 
 def display_message_to_user(message):
     # Placeholder function to display a message on the GUI
