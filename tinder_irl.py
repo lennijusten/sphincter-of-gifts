@@ -3,34 +3,32 @@ import random
 import requests
 import shutil
 import os
+import json
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = "YOUR API"
 
-def alien_name():
-    with open('./names.txt', 'r') as file:
-        names = file.readlines()
-    name = random.sample(names, 1)
-    name = name[0].strip()
-    return name
+def parse_json():
+    with open('./alien-profiles.json', 'r') as file:
+        data = json.load(file)
+    profiles = data["alienProfiles"]
 
-def alien_location():
-    with open('./planets.txt', 'r') as file:
-        planets = file.readlines()
-    planet = random.sample(planets, 1)
-    planet = planet[0].strip()
-    return planet
+    selected_profile = random.choice(profiles)
 
-def alien_age():
-    age = random.randint(1, 999)
-    with open('./time-units.txt', 'r') as file:
-        units = file.readlines()
-    unit = random.sample(units, 1)
-    unit = unit[0].strip()
-    return str(age) + " " + str(unit)
+    print(selected_profile)
+    name = selected_profile['name']
+    bio = selected_profile['bio']
+    interests = selected_profile['interests']
+    planet_name = selected_profile['planetName']
+    age = selected_profile['age']
+    alien_id = selected_profile['alien-id']
 
-def tinder_bio():
-    return "this bio sucks"
+    return {"name": name,
+            "bio": bio,
+            "interests": interests,
+            "planet": planet_name,
+            "age": age,
+            "id": alien_id}
 
 def alien_interests():
     return ["babes", "fish", "bedtime stories"]
@@ -87,17 +85,18 @@ def print_to_receipt_printer(content):
 
 
 def main_game_loop():
-    print(alien_name() + " from " + alien_location())
-    print(alien_age())
-
-    conversation_history = ""
-
-    for i in range(3):
-        result = respond_to_user(get_pickup_line(), conversation_history)
-        print(result[0])
-        conversation_history = result[1]
-
-    print(conversation_history)
+    alien = parse_json()
+    print(alien["name"] + " from " + alien["planet"])
+    # print(alien_age())
+    #
+    # conversation_history = ""
+    #
+    # for i in range(3):
+    #     result = respond_to_user(get_pickup_line(), conversation_history)
+    #     print(result[0])
+    #     conversation_history = result[1]
+    #
+    # print(conversation_history)
 
     # get_pickup_line()
     #

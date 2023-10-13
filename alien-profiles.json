@@ -7,5 +7,14 @@
             "planetName": "Musculon-IV",
             "age": "150 megaflexons",
             "alien-id": "midjourney-1"
+        },
+        {
+            "name": "Zarkon Flexor2",
+            "bio": "2Galactic gains and interstellar lifts. Looking for a workout partner to conquer the universe's gyms. Swipe right if you're ready to bench press in zero gravity. Protein shakes on Nebula-9, anyone?",
+            "interests": ["Zero-gravity workouts", "Galactic travel", "Nebula-9 protein shakes"],
+            "planetName": "Musculon-IV",
+            "age": "150 megaflexons",
+            "alien-id": "midjourney-1"
         }
+      ]
 }
