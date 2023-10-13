@@ -6,7 +6,7 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = ""
+openai.api_key = "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"
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
@@ -80,13 +80,7 @@ def print_ticket(prompt: str = "SET THE PROMPT"):
     arduino.recv().decode('utf-8')
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
-def main_game_loop():
-    alien = parse_json()
-    print(alien["name"] + " from " + alien["planet"])
-    print(alien["age"])
-
-    # print(alien_traits(alien["bio"]))
-
+def generate_role_prompt(alien):
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
     You are not very familiar with Earth culture, but appreciate it.
@@ -95,10 +89,8 @@ def main_game_loop():
     " You like " + ' and '.join(alien["interests"]) + ". "
 
     if (pass_pickup_line()):
-        print("accept")
         role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Try to seduce them. "
     else:
-        print("reject")
         role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them bombastically. "
 
     role_prompt += """Your messages must be under 300 characters.
@@ -106,6 +98,17 @@ def main_game_loop():
     Reference your traits and your likes if they are relevant.
     Only give the words that you would say to the user.
     Do not write your role. """
+    
+    return role_prompt
+
+def main_game_loop():
+    print("entering main game loop")
+    alien = parse_json()
+    print(alien["name"] + " from " + alien["planet"])
+    print(alien["age"])
+
+    # print(alien_traits(alien["bio"]))
+    role_prompt = generate_role_prompt(alien)
 
     # print(role_prompt)
 
