@@ -1,186 +1,310 @@
 {
-    "alienProfiles": [
-        {
-            "name": "Zarkon Flexor",
-            "bio": "Galactic gains and interstellar lifts. Looking for a workout partner to conquer the universe's gyms. Swipe right if you're ready to bench press in zero gravity. Protein shakes on Nebula-9, anyone?",
-            "interests": ["Zero-gravity workouts", "Galactic travel", "Nebula-9 protein shakes"],
-            "planetName": "Musculon-IV",
-            "age": "150 megaflexons",
-            "alien-id": "1",
-            "img": "zarkon.png"
-        },
-        {
-            "name": "Stellara Nova",
-            "bio": "Wandering the cosmos in search of the perfect stargazing partner. I'll show you constellations from every corner of the universe. Let's cuddle under the intergalactic night sky and make wishes upon shooting stars!",
-            "interests": ["Stargazing", "Interstellar picnics", "Shooting star wishes"],
-            "planetName": "Celestia-Prime",
-            "age": "500 stellar cycles",
-            "alien-id": "2",
-            "img": "stellara.png"
-        },
-        {
-            "name": "Aliena Stardust",
-            "bio": "Passionate explorer of celestial art forms and kaleidoscopic wonders. Seeking a muse to create cosmic masterpieces with. Join me in painting the galaxies with our imagination and let's leave a trail of stardust in our wake.",
-            "interests": ["Celestial artistry", "Kaleidoscopic adventures", "Stardust trails"],
-            "planetName": "Chroma-Nebula",
-            "age": "300 cosmic cycles",
-            "alien-id": "4",
-            "img": "alienastardust.png"
-        },
-        {
-            "name": "Orion Starflame",
-            "bio": "Cosmic wanderer with a heart full of stardust. Seeking a partner for interstellar adventures and deep conversations. Let's explore the universe and share stories under a canopy of galaxies. Swipe right if you're ready to embark on a journey beyond the stars.",
-            "interests": ["Interstellar adventures", "Stellar storytelling", "Galactic campfires"],
-            "planetName": "Nebula-Realm",
-            "age": "250 star cycles",
-            "alien-id": "5",
-            "img": "orionstarflame.png"
-        },
-        {
-            "name": "Cosmo Quirkster",
-            "bio": "The universe's most curious prankster, searching for someone to share cosmic giggles and quirky adventures. Let's pull practical jokes on comets and share interstellar puns. Swipe right if you're ready to giggle your way through the galaxies.",
-            "interests": ["Cosmic pranks", "Interstellar humor", "Comedic asteroids"],
-            "planetName": "Jestoria",
-            "age": "2000 cosmic chuckles",
-            "alien-id": "7",
-            "img": "cosmoquirkster.png"
-        },
-        {
-            "name": "Stella Lunar",
-            "bio": "Galactic maverick with an affinity for late-night rendezvous on the moon's surface. Searching for an equally daring soul to uncover the mysteries of the cosmos. Let's unravel the secrets of the stars and share moonlit secrets. Swipe right for an interstellar adventure that will leave you starstruck!",
-            "gender": "Female",
-            "interests": ["Late-night lunar escapades", "Stellar mysteries", "Moonlit secrets"],
-            "planetName": "Lunaris",
-            "age": "250 lunar cycles",
-            "alien-id": "10",
-            "img": "stellalunar.png"
-        },
-        {
-            "name": "Quasar Quester",
-            "bio": "Interstellar explorer with a laid-back approach to life among the stars. Seeking a fellow space enthusiast to share chill moments and cosmic vibes. Let's chase stardust clouds and bask in the glow of nebulae. Swipe right if you're ready to light up the galaxy!",
-            "gender": "Male",
-            "interests": ["Stardust clouds", "Nebulae meditation", "Cosmic chill"],
-            "planetName": "Quasaria",
-            "age": "350 starlight cycles",
-            "alien-id": "11",
-            "img": "quasarquester.png"
-        },
-        {
-            "name": "Ziggy Quirkster",
-            "bio": "Fun-loving alien with a passion for interdimensional picnics, collecting rare space rocks, and dancing to the beats of pulsar waves. Looking for someone to join my cosmic conga line and discover the hidden dimensions of love. Swipe right if you're ready to boogie across the multiverse!",
-            "interests": ["Interdimensional picnics", "Space rock collecting", "Pulsar wave dance parties"],
-            "planetName": "Quirkoria",
-            "age": "65 cosmic cycles",
-            "alien-id": "3",
-            "img": "ziggyquirkster.png"
-        },
-        {
-            "name": "Petal Pawsniffer",
-            "bio": "Passionate pet lover from the furthest reaches of the galaxy. Obsessed with interstellar furballs and alien critters. Seeking a kindred spirit who shares my love for cuddly companions. Swipe right if you're ready for cosmic pet playdates and intergalactic walks with our fuzzy friends.",
-            "interests": ["Interstellar furballs", "Alien critters", "Cosmic pet playdates"],
-            "planetName": "Furtopia",
-            "age": "200 lunar orbits",
-            "alien-id": "5",
-            "img": "petalpawsniffer.png"
-        },
-        {
-            "name": "Zylok Runeflare",
-            "bio": "Blazing across galaxies, I'm an interstellar sprinter who thrives on speed and cosmic competition. Looking for a fellow enthusiast to race through the cosmos and conquer new dimensions together. Swipe right if you're ready to feel the thrill of intergalactic sprints and share the finish line of our journey.",
-            "interests": ["Intergalactic sprints", "Cosmic competition", "Exploring new dimensions"],
-            "planetName": "Velocitron",
-            "age": "130 solar laps",
-            "alien-id": "6",
-            "img": "zylokruneflare.png"
-        },
-        {
-            "name": "Glimpse McLaughster",
-            "bio": "Recently single after a cosmic divorce. New to the interstellar dating scene and ready to explore the cosmic comedy of love. Looking for someone to share laughter and a good cosmic brew with. Swipe right if you're ready for some out-of-this-world humor and late-night stargazing chats.",
-            "interests": ["Cosmic comedy", "Laughter therapy", "Late-night stargazing"],
-            "planetName": "Humorhaven",
-            "age": "2,000 lunar chuckles",
-            "alien-id": "7",
-            "img": "glimpsemclaughster.png"
-        },
-	{
+"alienProfiles": [
+{
+    "name": "Zarkon Flexor",
+    "bio": "Galactic gains and interstellar lifts. Looking for a workout partner to conquer the universe's gyms. Swipe right if you're ready to bench press in zero gravity. Protein shakes on Nebula-9, anyone?",
+    "interests": [
+    "Zero-gravity workouts",
+    "Galactic travel",
+    "Nebula-9 protein shakes"
+    ],
+    "planetName": "Musculon-IV",
+    "age": "150 megaflexons",
+    "alien-id": "1",
+    "img": "zarkon.png"
+},
+{
+    "name": "Stella Nebulosa",
+    "bio": "Astrologer extraordinaire, and not just for your zodiac – I've got the deets on interstellar alignments too! With every brush stroke, I paint the secrets of the universe. Looking for someone to join my constellation of love. If you can vibe with the cosmic rhythm and appreciate body art that's literally out of this world, slide into my galactic DMs 😘. Bring your birth chart, and let's paint our love story in the stars!",
+    "interests": [
+    "Starry-eyed night walks",
+    "Crafting celestial potions",
+    "Galactic dance parties",
+    "Reading the fates of supernovas"
+    ],
+    "planetName": "AstroVerve",
+    "age": "12 Cosmic Cycles",
+    "alien-id": "88",
+    "img": "alienastardust.png"
+},
+{
+    "name": "Orion Starflame",
+    "bio": "Cosmic wanderer with a heart full of stardust. Seeking a partner for interstellar adventures and deep conversations. Let's explore the universe and share stories under a canopy of galaxies. Swipe right if you're ready to embark on a journey beyond the stars.",
+    "interests": [
+    "Interstellar adventures",
+    "Stellar storytelling",
+    "Galactic campfires"
+    ],
+    "planetName": "Nebula-Realm",
+    "age": "250 star cycles",
+    "alien-id": "5",
+    "img": "orionstarflame.png"
+},
+{
+    "name": "Cosmo Quirkster",
+    "bio": "The universe's most curious prankster, searching for someone to share cosmic giggles and quirky adventures. Let's pull practical jokes on comets and share interstellar puns. Swipe right if you're ready to giggle your way through the galaxies.",
+    "interests": [
+    "Cosmic pranks",
+    "Interstellar humor",
+    "Comedic asteroids"
+    ],
+    "planetName": "Jestoria",
+    "age": "2000 cosmic chuckles",
+    "alien-id": "7",
+    "img": "cosmoquirkster.png"
+},
+{
+    "name": "Stella Lunar",
+    "bio": "Galactic maverick with an affinity for late-night rendezvous on the moon's surface. Searching for an equally daring soul to uncover the mysteries of the cosmos. Let's unravel the secrets of the stars and share moonlit secrets. Swipe right for an interstellar adventure that will leave you starstruck!",
+    "interests": [
+    "Late-night lunar escapades",
+    "Stellar mysteries",
+    "Moonlit secrets"
+    ],
+    "planetName": "Lunaris",
+    "age": "250 lunar cycles",
+    "alien-id": "10",
+    "img": "stellalunar.png"
+},
+{
+    "name": "Quasar Quester",
+    "bio": "Interstellar explorer with a laid-back approach to life among the stars. Seeking a fellow space enthusiast to share chill moments and cosmic vibes. Let's chase stardust clouds and bask in the glow of nebulae. Swipe right if you're ready to light up the galaxy!",
+    "interests": [
+    "Stardust clouds",
+    "Nebulae meditation",
+    "Cosmic chill"
+    ],
+    "planetName": "Quasaria",
+    "age": "350 starlight cycles",
+    "alien-id": "11",
+    "img": "quasarquester.png"
+},
+{
+    "name": "Ziggy Quirkster",
+    "bio": "Fun-loving alien with a passion for interdimensional picnics, collecting rare space rocks, and dancing to the beats of pulsar waves. Looking for someone to join my cosmic conga line and discover the hidden dimensions of love. Swipe right if you're ready to boogie across the multiverse!",
+    "interests": [
+    "Interdimensional picnics",
+    "Space rock collecting",
+    "Pulsar wave dance parties"
+    ],
+    "planetName": "Quirkoria",
+    "age": "65 cosmic cycles",
+    "alien-id": "3",
+    "img": "ziggyquirkster.png"
+},
+{
+    "name": "Petal Pawsniffer",
+    "bio": "Passionate pet lover from the furthest reaches of the galaxy. Obsessed with interstellar furballs and alien critters. Seeking a kindred spirit who shares my love for cuddly companions. Swipe right if you're ready for cosmic pet playdates and intergalactic walks with our fuzzy friends.",
+    "interests": [
+    "Interstellar furballs",
+    "Alien critters",
+    "Cosmic pet playdates"
+    ],
+    "planetName": "Furtopia",
+    "age": "200 lunar orbits",
+    "alien-id": "5",
+    "img": "petalpawsniffer.png"
+},
+{
+    "name": "Zylok Runeflare",
+    "bio": "Blazing across galaxies, I'm an interstellar sprinter who thrives on speed and cosmic competition. Looking for a fellow enthusiast to race through the cosmos and conquer new dimensions together. Swipe right if you're ready to feel the thrill of intergalactic sprints and share the finish line of our journey.",
+    "interests": [
+    "Intergalactic sprints",
+    "Cosmic competition",
+    "Exploring new dimensions"
+    ],
+    "planetName": "Velocitron",
+    "age": "130 solar laps",
+    "alien-id": "6",
+    "img": "zylokruneflare.png"
+},
+{
+    "name": "Glimpse McLaughster",
+    "bio": "Recently single after a cosmic divorce. New to the interstellar dating scene and ready to explore the cosmic comedy of love. Looking for someone to share laughter and a good cosmic brew with. Swipe right if you're ready for some out-of-this-world humor and late-night stargazing chats.",
+    "interests": [
+    "Cosmic comedy",
+    "Laughter therapy",
+    "Late-night stargazing"
+    ],
+    "planetName": "Humorhaven",
+    "age": "2,000 lunar chuckles",
+    "alien-id": "7",
+    "img": "glimpsemclaughster.png"
+},
+{
     "name": "Strumzara Melodaze",
     "bio": "Underneath this innocent facade, I craft melodies that not only captivate your senses but enchant your heart. I've been known to perform serenades that lead to untamed, otherworldly passions. Swipe right if you're daring enough to discover the depths of alien kinks I've mastered.",
-    "interests": ["Galactic serenades", "Exploring new sensations", "Unearthly love rituals"],
+    "interests": [
+    "Galactic serenades",
+    "Exploring new sensations",
+    "Unearthly love rituals"
+    ],
     "planetName": "Tunezara VII",
     "age": "45 cosmic rhythms",
     "alien-id": "10",
     "img": "strumzaramelodaze.png"
-	},
-	{
+},
+{
     "name": "Milfara Luxezon",
     "bio": "Loaded with galactic credits and a penchant for the younger star-lads. I've been around the sun more times than I'd like to admit, but honey, experience is the best teacher. Swipe right if you fancy the high life and think you can keep up with my interstellar energy.",
-    "interests": ["Jet-setting around the galaxy", "Lavish galactic spas", "Teaching young starlads a lesson or two"],
+    "interests": [
+    "Jet-setting around the galaxy",
+    "Lavish galactic spas",
+    "Teaching young starlads a lesson or two"
+    ],
     "planetName": "Goldara Prime",
     "age": "Ageless (but don't ask! 😉)",
     "alien-id": "11",
     "img": "milfaraluxezon.png"
-	},
-	{
+},
+{
     "name": "Mopster GooGoo",
     "bio": "Spontaneous splashes and wild spillages? Worry not, darling! I've got the ultimate absorbency powers. Despite my slick appearance, I'm the 'clean-up' kind of guy. However, don't assume I like cleaning – I just have a knack for it. 😉 Looking for someone who can make a mess, because two can play that game, and I'm up for the challenge!",
-    "interests": ["Slippery slides", "Squishing between toes", "Late-night puddle parties"],
+    "interests": [
+    "Slippery slides",
+    "Squishing between toes",
+    "Late-night puddle parties"
+    ],
     "planetName": "Soppy IV",
     "age": "Age? Just a number when you're this absorbent!",
     "alien-id": "12",
     "img": "mopstergoogoo.png"
-	},
-	{
+},
+{
     "name": "Bulky BluBlu",
     "bio": "What's up, puny Earthlings? Name's Bulky BluBlu – and yeah, I'm kind of a big deal on my planet. Just check out these abs! Too bad on my home turf, being chunky is the trend; makes me the outcast Chad of Dumbo Prime. I don't have time for losers, only for those who can keep up with my unparalleled 'charm'. If you can't handle my vibe, it's probably because you're not cool enough.",
-    "interests": ["Taking up two parking spots with my spaceship", "Unrequested flexing in public places", "Giving unsolicited advice on 'how to be cool'"],
+    "interests": [
+    "Taking up two parking spots with my spaceship",
+    "Unrequested flexing in public places",
+    "Giving unsolicited advice on 'how to be cool'"
+    ],
     "planetName": "Dumbo Prime",
     "age": "Eternally chiseled!",
     "alien-id": "33",
     "img": "bulkyblublu.png"
-	},
-	{
+},
+{
     "name": "Harmony Hoot",
     "bio": "Hello there, I'm Harmony Hoot, and before you ask, yes, my unique 'feature' is atop my head, but don't worry - it's just for better reception! I'm an eco-friendly, banjo-strumming, intergalactic hipster who loves serenading the universe with my tunes. Known for my groovy rainbow hair, which doubles as a Wi-Fi hotspot. Looking for someone who vibes with my wavelength and doesn't mind occasionally being a hat stand.",
-    "interests": ["Eco-conscious interstellar travel", "Late-night stargazing", "Organic asteroid farming", "Collecting vintage space boots"],
+    "interests": [
+    "Eco-conscious interstellar travel",
+    "Late-night stargazing",
+    "Organic asteroid farming",
+    "Collecting vintage space boots"
+    ],
     "planetName": "AquaVibria",
     "age": "Timeless, just like my style",
     "alien-id": "47",
     "img": "harmonyhoot.png"
-	},
-	{
+},
+{
     "name": "Sgt. Sizzle",
     "bio": "On the beat by day, heating things up by night 🔥. With eyes that see right through you, and a body temperature that's literally off the charts (I'm talking sun-surface hot, babe). Looking for someone who can handle the heat and isn't afraid of a little intergalactic frisking. Ever tried a Galactic Guard's handcuffs? Here's your chance 😉. Must love space-travel and spicy food!",
-    "interests": ["Heat-seeking midnight flights", "Sultry stargazing", "Hot-tubbing on meteor showers", "Flirting at black hole speeds"],
+    "interests": [
+    "Heat-seeking midnight flights",
+    "Sultry stargazing",
+    "Hot-tubbing on meteor showers",
+    "Flirting at black hole speeds"
+    ],
     "planetName": "FernoVix",
     "age": "237 Nebula Nights",
     "alien-id": "69",
     "img": "sgtsizzle.png"
-	},
-        {
-            "name": "Vyne Temptasia",
-            "bio": "Sultry and sensuous, I'm an alien seductress with a deep affection for grapes in all their cosmic forms. Seeking a fellow grape enthusiast to savor the interstellar sweetness. Swipe right if you're ready to experience the grapevine of pleasure and cosmic connection.",
-            "interests": ["Grape seduction", "Intimate grape tastings", "Cosmic vineyards"],
-            "planetName": "Vinopia",
-            "age": "500 grape harvests",
-            "alien-id": "8",
-            "img": "vynetemptasia.png"
-        },
-        {
-            "name": "Arnold",
-            "bio": "Professional by day, cosmic conqueror by night. On the surface, I'm all about corporate meetings and data analysis, but secretly, I have a peculiar passion for collecting rare alien socks. Swipe right if you're ready to explore my sock drawer and uncover the interstellar secrets within.",
-            "interests": ["Data analysis", "Corporate life", "Alien sock collection"],
-            "planetName": "Sternortex",
-            "age": "400 corporate cycles",
-            "alien-id": "9",
-            "img": "arnold.png"
-        },
-        {
-            "name": "Prof. Xerio Intelectro",
-            "bio": "A connoisseur of the cosmic intellect, I have a penchant for quarks and quantum mechanics. Only the most erudite minds need apply, for I seek a fellow academic elite to explore the deepest crevices of interstellar knowledge. Swipe right if you can match wits with the galaxies' foremost intellects.",
-            "interests": ["Quantum physics", "Theoretical cosmology", "Advanced astrophysics"],
-            "planetName": "Scholarion",
-            "age": "1,000 theses defended",
-            "alien-id": "10",
-            "img": "professerxerio.png"
-        }
-      ]
+},
+{
+    "name": "Vyne Temptasia",
+    "bio": "Sultry and sensuous, I'm an alien seductress with a deep affection for grapes in all their cosmic forms. Seeking a fellow grape enthusiast to savor the interstellar sweetness. Swipe right if you're ready to experience the grapevine of pleasure and cosmic connection.",
+    "interests": [
+    "Grape seduction",
+    "Intimate grape tastings",
+    "Cosmic vineyards"
+    ],
+    "planetName": "Vinopia",
+    "age": "500 grape harvests",
+    "alien-id": "8",
+    "img": "vynetemptasia.png"
+},
+{
+    "name": "Arnold",
+    "bio": "Professional by day, cosmic conqueror by night. On the surface, I'm all about corporate meetings and data analysis, but secretly, I have a peculiar passion for collecting rare alien socks. Swipe right if you're ready to explore my sock drawer and uncover the interstellar secrets within.",
+    "interests": [
+    "Data analysis",
+    "Corporate life",
+    "Alien sock collection"
+    ],
+    "planetName": "Sternortex",
+    "age": "400 corporate cycles",
+    "alien-id": "9",
+    "img": "arnold.png"
+},
+{
+    "name": "Prof. Xerio Intelectro",
+    "bio": "A connoisseur of the cosmic intellect, I have a penchant for quarks and quantum mechanics. Only the most erudite minds need apply, for I seek a fellow academic elite to explore the deepest crevices of interstellar knowledge. Swipe right if you can match wits with the galaxies' foremost intellects.",
+    "interests": [
+    "Quantum physics",
+    "Theoretical cosmology",
+    "Advanced astrophysics"
+    ],
+    "planetName": "Scholarion",
+    "age": "1,000 theses defended",
+    "alien-id": "10",
+    "img": "professerxerio.png"
+},
+{
+    "name": "Flexo Zaptar",
+    "bio": "Height? More like 'light-weight'! 😜 Short in stature, but trust me, I bench galaxies. Proud owner of a cosmic six-pack and looking for a celestial gym gal who can keep up. If you're searching for someone to spot you during interstellar lifts or discuss the best extraterrestrial protein shakes, I'm your guy! Let's make the gym our playground and lift our love to the stars! 💪🛸",
+    "interests": [
+    "Galactic gym sessions",
+    "Competing in universe weightlifting championships",
+    "Exploring new protein concoctions",
+    "Playful alien dance-offs"
+    ],
+    "planetName": "MuscleMars",
+    "age": "5 Pulsar Pumps",
+    "alien-id": "99",
+    "img": "alienold.png"
+},
+{
+    "name": "Vibro Vortex",
+    "bio": "Outgoing and energetic star-cruiser with a wild side! 🌌 Got a penchant for black holes, and I don't just mean I study them. When two black holes collide, well... let's just say gravitational waves really get my nebulae going. 😉 Looking for someone to ride the cosmic waves with and share a few interstellar giggles.",
+    "interests": [
+    "Black hole sightseeing",
+    "Surfing on gravitational waves",
+    "Telling jokes at the edge of the event horizon",
+    "Cosmic karaoke nights"
+
+    ],
+    "planetName": "Wavetopia",
+    "age": "5 Billion Light Years young",
+    "alien-id": "360",
+    "img": "cosmoquirkster.png"
+},
+{
+    "name": "Zarlox the Zestless",
+    "bio": "Recently hopped off the spaceship and found myself gravitating to intergalactic spirits. 🍺 (It's not a problem if it's from another galaxy, right?) Currently coping with some space baggage (you know, the usual: asteroid chases, rogue black holes). Seeking someone who can pull me into their orbit and show me there's more to this galaxy than just strong drinks.",
+    "interests": [
+    "Stargazing during blackouts",
+    "Intergalactic bar hops",
+    "Dodging cosmic debt collectors",
+    "Swaying to the hum of space frequencies",
+    "Trying not to get sucked into wormholes... emotionally and literally"
+    ],
+    "planetName": "Hangovar IV",
+    "age": "3 Millennia and still partying",
+    "alien-id": "789",
+    "img": "zarlox_zestless.png"
+},
+    {
+    "name": "Tired Telox",
+    "bio": "Galactic gourmet with a love for interstellar picnics. Will not message first (been there, swiped that). If your idea of a first date is floating aimlessly through the Andromeda belt, count me out. Seeking someone who’s just as fed up with the flaky dating scene of this galaxy. Must love cosmic campouts and hate the endless swipe cycle. Serious star-seekers only.",
+    "interests": ["Cosmic cookouts", "Starlit serenades", "Anti-gravity meditation", "Deep space deep talks", "Astral art appreciation"],
+    "planetName": "Tinderella",
+    "age": "2.5 Millennia and counting",
+    "alien-id": "902",
+    "img": "lunarlark.png"
 }
+
+]
+}
+
+
