@@ -6,9 +6,10 @@ alien_profile = None  # Global variable to hold the selected alien profile
 conversation_history = "" #Global variable to hold the conversation history
 
 @app.route('/')
-def index():
+def index(): # set counter to zero here
     global alien_profile
     alien_profile = tinder_irl.parse_json()
+    tinder_irl.reset_count()
     return render_template('index.html', profile=alien_profile)
 
 @app.route('/process', methods=['POST'])
@@ -19,13 +20,22 @@ def process():
     if not prompt:
         return jsonify({'error': 'No message text provided'}), 400
 
-    conversation_history = ""
-    role_prompt = tinder_irl.generate_role_prompt(alien_profile)  # Generate role prompt based on alien profile
-    response, _ = tinder_irl.respond_to_user(prompt, conversation_history, role_prompt)
+    if tinder_irl.get_count() < 3:
+        role_prompt = tinder_irl.generate_role_prompt(alien_profile)  # Generate role prompt based on alien profile
+        response, end = tinder_irl.respond_to_user(prompt, role_prompt)
 
-    print(response)  # Print the response to console for now
+        print(response)  # Print the response to console for now
 
-    return jsonify({'response': response})
+        if (response != None):
+            return jsonify({'response': response})
+        else:
+            return jsonify({'error': 'No message text provided'}), 400
+
+        if (end): # DISABLE THE SEND MESSAGE BUTTON HERE
+            print("DISABLE THE SEND MESSAGE NOW")
+            pass
+    else: # CAN WE MAKE MESSAGES STOP SENDING HERE
+        return jsonify({'error': 'No message text provided'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)

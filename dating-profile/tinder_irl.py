@@ -11,6 +11,22 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 # Port for the arduino
 port = ""
 
+# counter for conversation
+count = 0
+
+# conversation history
+conversation_history = ""
+
+def reset_count():
+    global count
+    global conversation_history
+    count = 0
+    conversation_history = ""
+
+def get_count():
+    global count
+    return count
+
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
         data = json.load(file)
@@ -47,18 +63,27 @@ def alien_traits(bio):
     values_list = [value.strip() for value in result.split(',')]
     return values_list
 
-def respond_to_user(prompt, conversation_history, role_prompt):
-    input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
-    response = openai.ChatCompletion.create(
-                  model="gpt-3.5-turbo",
-                  messages=[{"role": "system", "content": role_prompt},
-                            {"role": "user", "content": input_text}
-                  ])
+def respond_to_user(prompt, role_prompt):
+    global count
+    global conversation_history
+    if (count < 3):
+        input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
+        response = openai.ChatCompletion.create(
+                      model="gpt-3.5-turbo",
+                      messages=[{"role": "system", "content": role_prompt},
+                                {"role": "user", "content": input_text}
+                      ])
 
-    result = response["choices"][0]["message"]["content"]
+        result = response["choices"][0]["message"]["content"]
 
-    conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
-    return result, conversation_history
+        conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
+        count += 1
+        if (count == 3):
+            end = True
+            #PRINT THE TICKET HERE
+        else:
+            end = False
+        return result, end
 
 def get_pickup_line():
     user_input = input("What's your best pickup line for this alien?: ")
@@ -96,10 +121,13 @@ def generate_role_prompt(alien):
     " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
     " You like " + ' and '.join(alien["interests"]) + ". "
 
-    if (pass_pickup_line()):
-        role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Try to seduce them. "
-    else:
-        role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them bombastically. "
+    global count
+    if (count == 2):
+        if (pass_pickup_line()):
+            role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Ask them on a date for tomorrow night seductively. "
+        else:
+            role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them rudely, but in character. "
+    print(role_prompt)
 
     role_prompt += """Your messages must be under 300 characters.
     Reference the user's message in your reply.
@@ -116,20 +144,14 @@ def main_game_loop():
     print(alien["age"])
 
     # print(alien_traits(alien["bio"]))
-    role_prompt = generate_role_prompt(alien)
 
-    # print(role_prompt)
-
-    conversation_history = ""
-
-    result = respond_to_user(get_pickup_line(), conversation_history, role_prompt)
-    print(result[0])
-    conversation_history = result[1]
-    #
-    # for i in range(3):
-    #     result = respond_to_user(get_message(), conversation_history, role_prompt)
-    #     print(result[0])
-    #     conversation_history = result[1]
+    global conversation_history
+    while (True):
+        role_prompt = generate_role_prompt(alien)
+        print(role_prompt)
+        result = respond_to_user(get_message(), role_prompt)
+        print(result[0])
+        # print(conversation_history)
 
     # get_pickup_line()
 
