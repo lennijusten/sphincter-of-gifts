@@ -10,15 +10,6 @@
             "img": "zarkon.png"
         },
         {
-            "name": "Zarkon Flexor2",
-            "bio": "2Galactic gains and interstellar lifts. Looking for a workout partner to conquer the universe's gyms. Swipe right if you're ready to bench press in zero gravity. Protein shakes on Nebula-9, anyone?",
-            "interests": ["Zero-gravity workouts", "Galactic travel", "Nebula-9 protein shakes"],
-            "planetName": "Musculon-IV",
-            "age": "150 megaflexons",
-            "alien-id": "1.1",
-            "img": "zarkon.png"
-        },
-        {
             "name": "Stellara Nova",
             "bio": "Wandering the cosmos in search of the perfect stargazing partner. I'll show you constellations from every corner of the universe. Let's cuddle under the intergalactic night sky and make wishes upon shooting stars!",
             "interests": ["Stargazing", "Interstellar picnics", "Shooting star wishes"],
@@ -73,6 +64,15 @@
             "age": "350 starlight cycles",
             "alien-id": "11",
             "img": "quasarquester.png"
+        },
+        {
+            "name": "Ziggy Quirkster",
+            "bio": "Fun-loving alien with a passion for interdimensional picnics, collecting rare space rocks, and dancing to the beats of pulsar waves. Looking for someone to join my cosmic conga line and discover the hidden dimensions of love. Swipe right if you're ready to boogie across the multiverse!",
+            "interests": ["Interdimensional picnics", "Space rock collecting", "Pulsar wave dance parties"],
+            "planetName": "Quirkoria",
+            "age": "65 cosmic cycles",
+            "alien-id": "3",
+            "img": "ziggyquirkster.png"
         }
       ]
 }

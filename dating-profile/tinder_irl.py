@@ -5,8 +5,13 @@ import shutil
 import os
 import json
 
+from arduino import Arduino, gen_ticket_id
+
 # Initialize the OpenAI API client
 openai.api_key = os.environ["OPENAI_API_KEY"]
+
+# Port for the arduino
+port = ""
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
@@ -21,13 +26,15 @@ def parse_json():
     planet_name = selected_profile['planetName']
     age = selected_profile['age']
     alien_id = selected_profile['alien-id']
+    img = selected_profile['img']
 
     return {"name": name,
             "bio": bio,
             "interests": interests,
             "planet": planet_name,
             "age": age,
-            "id": alien_id}
+            "id": alien_id,
+            "img": "img/" + img}
 
 def alien_traits(bio):
     input_text = bio
@@ -99,7 +106,7 @@ def generate_role_prompt(alien):
     Reference your traits and your likes if they are relevant.
     Only give the words that you would say to the user.
     Do not write your role. """
-    
+
     return role_prompt
 
 def main_game_loop():
