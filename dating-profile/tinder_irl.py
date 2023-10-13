@@ -5,8 +5,6 @@ import shutil
 import os
 import json
 
-from arduino import Arduino, gen_ticket_id
-
 # Initialize the OpenAI API client
 openai.api_key = "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"
 
@@ -78,13 +76,15 @@ def pass_pickup_line():
         return False
 
 def print_ticket(prompt: str = "SET THE PROMPT"):
+    from arduino import Arduino, gen_ticket_id
+
     if "|" in prompt:
         print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
         prompt = prompt.replace("|", "")
 
     arduino = Arduino(port)
     arduino.wait_until_ready()
-    arduino.recv().decode('utf-8')
+    print(arduino.recv().decode('utf-8'))
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
