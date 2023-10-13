@@ -20,11 +20,16 @@ CHAT_TOLERANCE = random.randint(3, 5)
 # conversation history
 conversation_history = ""
 
+# outcome of the encounter, sets to true when the last message is a rejection (user does not receive gift)
+rejected = False
+
 def reset_count():
     global count
     global conversation_history
+    global rejected
     count = 0
     conversation_history = ""
+    rejected = False
 
 def get_count():
     global count
@@ -68,6 +73,7 @@ def respond_to_user(prompt, role_prompt):
     global count
     global CHAT_TOLERANCE
     global conversation_history
+    global rejected
     if (count <= CHAT_TOLERANCE):
         input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
         response = openai.ChatCompletion.create(
@@ -85,7 +91,7 @@ def respond_to_user(prompt, role_prompt):
             #PRINT THE TICKET HERE
         else:
             end = False
-        return result, end
+        return result, end#, rejected
 
 def get_pickup_line():
     user_input = input("What's your best pickup line for this alien?: ")
@@ -116,6 +122,7 @@ def print_ticket(prompt: str = "SET THE PROMPT"):
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
+    global rejected
     print(CHAT_TOLERANCE)
     print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
@@ -127,17 +134,14 @@ def generate_role_prompt(alien):
 
     global count
     if (count <= CHAT_TOLERANCE):
-        if (pass_pickup_line()):
-            if count == CHAT_TOLERANCE - 1:
+        if count != CHAT_TOLERANCE-1:
+            role_prompt += "You are interested in the User as a potential mate because you find them sexy. You are curious what the user wrote. Flirt with them seductively in a funny or unusual way. "
+        else:
+            if (pass_pickup_line()): # 50-50 accept or reject on the last message
                 role_prompt += "You want to mate with the User because you find them sexy. You really like what the user wrote. Ask them on a date for tomorrow night seductively. "
             else: 
-                role_prompt += "You are interested in the User as a potential mate because you find them sexy. You are curious what the user wrote. Flirt with them seductively in a funny or unusual way. "
-        else:
-            if count == CHAT_TOLERANCE - 1:
-                role_prompt += "You don't like the user and don't want to mate with them. You find them ugly and think they have a bad personality. Reject them rudely and say goodbye, but in character. "
-            else:
-                role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them rudely, but in character. "
-    # print(role_prompt)
+                rejected = True
+                role_prompt += "You don't like the user and don't want to mate with them. You find them ugly and think they have a bad personality. Reject them rudely and say goodbye, but in character and acknowledging the conversation history. "
 
     role_prompt += """Your messages must be under 300 characters.
     Reference the user's message in your reply.
