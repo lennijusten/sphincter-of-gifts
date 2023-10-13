@@ -5,8 +5,13 @@ import shutil
 import os
 import json
 
+from arduino import Arduino, gen_ticket_id
+
 # Initialize the OpenAI API client
 openai.api_key = "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"
+
+# Port for the arduino
+port = ""
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
