@@ -18,21 +18,9 @@
       <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-    </style>
 </head>
+
+<body>
 <div class="bio_window">
     <img src="{{ profile['image'] }}" alt="Profile Image" class="profile-image">
     <div class="profile-info">
@@ -80,11 +68,13 @@
 
 <script>
     (function () {
+
         var Message;
         Message = function (arg) {
             this.text = arg.text, this.message_side = arg.message_side;
             this.draw = function (_this) {
                 return function () {
+                    console.log("DRAW CALLED");
                     var $message;
                     $message = $($('.message_template').clone().html());
                     $message.addClass(_this.message_side).find('.text').html(_this.text);
@@ -96,12 +86,14 @@
             }(this);
             return this;
         };
+
         $(function () {
             var getMessageText, message_side, sendMessage;
             message_side = 'right';
             getMessageText = function () {
                 return $('.message_input').val();
             };
+
             sendMessage = function (text) {
                 if (text.trim() === '') {
                     return;
@@ -111,6 +103,7 @@
                     text: text,
                     message_side: message_side
                 });
+                message.draw();
                 $.ajax({
                     url: '/process',
                     type: 'POST',
@@ -118,28 +111,34 @@
                     data: JSON.stringify({ 'text': text }),  // Send data as JSON
                     dataType: 'json',  // We expect to receive JSON from the server
                     success: function(response) {
+                        console.log("RESPONSE");
+                        console.log(response);
                         // Create a message object with the response and display it
                         var returnedMessage = new Message({
                             text: response.response,
                             message_side: 'left'
                         });
                         returnedMessage.draw();
+                        $('.messages').animate({ scrollTop: $('.messages').prop('scrollHeight') }, 300);
                     },
                     error: function(error) {
                         console.log(error);
                     }
                 });
-                message.draw();
+
                 $('.messages').animate({ scrollTop: $('.messages').prop('scrollHeight') }, 300);
             };
+
             $('.send_message').click(function (e) {
                 return sendMessage(getMessageText());
             });
+
             $('.message_input').keyup(function (e) {
                 if (e.which === 13) {
                     return sendMessage(getMessageText());
                 }
             });
+
         });
     }.call(this));
 </script>

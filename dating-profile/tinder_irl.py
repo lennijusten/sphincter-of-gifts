@@ -6,7 +6,7 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 def parse_json():
     with open('./alien-profiles.json', 'r') as file:
@@ -81,6 +81,7 @@ def print_ticket(prompt: str = "SET THE PROMPT"):
     arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
+    print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
     You are not very familiar with Earth culture, but appreciate it.
