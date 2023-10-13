@@ -20,14 +20,14 @@ def process():
     if not prompt:
         return jsonify({'error': 'No message text provided'}), 400
 
-    if tinder_irl.get_count() < 3:
+    if tinder_irl.get_count() < tinder_irl.CHAT_TOLERANCE:
         role_prompt = tinder_irl.generate_role_prompt(alien_profile)  # Generate role prompt based on alien profile
         response, end = tinder_irl.respond_to_user(prompt, role_prompt)
 
         print(response)  # Print the response to console for now
 
         if (response != None):
-            return jsonify({'response': response})
+            return jsonify({'response': response, 'end': end})
         else:
             return jsonify({'error': 'No message text provided'}), 400
 
@@ -35,7 +35,7 @@ def process():
             print("DISABLE THE SEND MESSAGE NOW")
             pass
     else: # CAN WE MAKE MESSAGES STOP SENDING HERE
-        return jsonify({'error': 'No message text provided'}), 400
+        return jsonify({'end':end})
 
 if __name__ == '__main__':
     app.run(debug=True)

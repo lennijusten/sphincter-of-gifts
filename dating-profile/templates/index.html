@@ -93,6 +93,13 @@
     </li>
 </div>
 
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <p>Chat ended. You have exceeded the chat tolerance.</p>
+        <button id="refreshButton">Receive my Gift from the Sphincter</button>
+    </div>
+</div>
+
 <script>
     (function () {
 
@@ -153,6 +160,23 @@
                         });
                         returnedMessage.draw();
                         $('.messages').animate({ scrollTop: $('.messages').prop('scrollHeight') }, 300);
+                        if (response.end) {
+                            // Disable input and send button when chat should end
+                            $('.message_input').prop('disabled', true);
+                            $('.send_message').addClass('disabled');
+                            
+                            // Add a message to inform the user
+                            //var endMessage = new Message({
+                            //    text: 'Chat ended. You have exceeded the chat tolerance.',
+                            //    message_side: 'left'
+                            //});
+                            //endMessage.draw();
+                            // Show the modal
+                            showModal();
+
+                            // Add a click event listener to the "Receive my Gift from the Sphincter" button
+                            document.getElementById("refreshButton").addEventListener("click", refreshPage);
+                        }                        
                     },
                     error: function(error) {
                         console.log(error);
@@ -171,8 +195,19 @@
                     return sendMessage(getMessageText());
                 }
             });
-
         });
+
+        // Function to show the modal
+        function showModal() {
+            var modal = document.getElementById("popupModal");
+            modal.style.display = "block";
+        }
+
+        // Function to refresh the page
+        function refreshPage() {
+            location.reload();
+        }
+        
     }.call(this));
 </script>
 </body>
