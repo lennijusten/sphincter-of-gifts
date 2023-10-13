@@ -5,19 +5,38 @@ import shutil
 import os
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+# openai.api_key = "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"
+openai.api_key = "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"
+
+def alien_name():
+    with open('./names.txt', 'r') as file:
+        names = file.readlines()
+    name = random.sample(names, 1)
+    name = name[0].strip()
+    return name
+
+def alien_location():
+    with open('./planets.txt', 'r') as file:
+        planets = file.readlines()
+    planet = random.sample(planets, 1)
+    planet = planet[0].strip()
+    return planet
 
 def generate_bio():
-    prompt = """Write an online dating bio. Do not use alien-themed language.
-    Keep it under 100 characters. Make it weird and cultured but do not use those words.
-    Do not make every sentence alien-themed.
-    Do not use hashtags or emojis."""
+    # prompt = """Write a funny and weird sentence or two describing yourself that makes people intrigued about you.
+    # Do not describe physical traits. Only describe personality traits and hobbies.
+    # Keep it under 100 characters. Make it weird but do not use that word.
+    # Do not make every sentence alien-themed. Keep it subtle.
+    # Do not use hashtags or emojis. Only write the words."""
+
+    prompt = """25 of the following: Keep this under 100 characters.
+    Something funny and slightly sexy that an alien would say about themselves referencing human culture.
+    Do not use hashtags or emojis. Only write the words."""
 
     response = openai.ChatCompletion.create(
                   model="gpt-3.5-turbo",
-                  messages=[{"role": "system", "content": 'You are looking for love, writing your online dating bio, \
-                  but you have high standards and think you are way hotter than almost everyone on the app. \
-                  You are whimsical and artsy.'},
+                  messages=[{"role": "system", "content": 'You are an alien looking for love, \
+                  but you have high standards!'},
                             {"role": "user", "content": prompt}
                   ])
 
@@ -52,14 +71,15 @@ def print_to_receipt_printer(content):
 
 
 def main_game_loop():
+    print(alien_name() + " from " + alien_location())
     print(generate_bio())
 
-    get_pickup_line()
-
-    if (pass_pickup_line()):
-        print("SUCCESS! smutty response here and receipt print.")
-    else:
-        print("You failed (:")
+    # get_pickup_line()
+    #
+    # if (pass_pickup_line()):
+    #     print("SUCCESS! smutty response here and receipt print.")
+    # else:
+    #     print("You failed (:")
 
 
 def convert_image_to_ascii(image_path):
