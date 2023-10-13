@@ -24,6 +24,7 @@ body {
   font-family: "Calibri", "Roboto", sans-serif;
 }
 
+/*
 .bio_window {
   width: calc(100% - 20px);
   margin: 20px auto;
@@ -34,6 +35,54 @@ body {
   background-color: #f8f8f8;
   overflow: hidden;
 }
+*/
+
+
+
+.bio_window {
+  width: calc(100% - 20px);
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.profile-text {
+  flex: 1;
+  padding: 20px;
+  margin-right: 20px; /* Add this line to create space between the text and the image */
+}
+
+.profile-image {
+  flex-basis: 60%;
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-interests {
+  padding: 0px 40px 20px 40px;
+}
+
+
+
+
+
+
 
 .container {
   width: 80%;
@@ -46,7 +95,7 @@ body {
 }
 
 .profile-image {
-  width: 100%;
+  width: 40%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -186,6 +235,18 @@ body {
   background-color: #fdbf68;
   float: right;
 }
+
+
+.avatar-img {
+    width: 100%; /* This will make the image take the full width of the .avatar div */
+    height: 100%; /* This will make the image take the full height of the .avatar div */
+    border-radius: 50%; /* This will make the image circular */
+    object-fit: cover; /* This will ensure that the image covers the entire element without distorting its aspect ratio */
+}
+
+
+
+
 .messages .message.right .text_wrapper {
   background-color: #c7eafc;
   margin-right: 20px;
