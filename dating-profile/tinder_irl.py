@@ -9,13 +9,13 @@ import json
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Port for the arduino
-port = ""
+port = "/dev/cu.usbserial-130"
 
 # counter for conversation
 count = 0
 
 # when to end conversation
-CHAT_TOLERANCE = random.randint(3, 5)
+CHAT_TOLERANCE = 3 #random.randint(3, 4)
 
 # conversation history
 conversation_history = ""
@@ -108,7 +108,7 @@ def get_message():
     return user_input
 
 def pass_pickup_line():
-    return random.choice([True, False])
+    return random.choice([True, True, False])
     # if random.random() < 0.5:
     #     return True
     # else:
@@ -126,14 +126,15 @@ def make_limerick(conversation_history):
 def print_ticket(prompt: str = "SET THE PROMPT"):
     from arduino import Arduino, gen_ticket_id
 
-    if "|" in prompt:
-        print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
-        prompt = prompt.replace("|", "")
+    # if "|" in prompt:
+    #     print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
+    #     prompt = prompt.replace("|", "")
 
     arduino = Arduino(port)
     arduino.wait_until_ready()
     print(arduino.recv().decode('utf-8'))
-    arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
+    arduino.write("Thanks for the fondle, here's a drink.")
+    # arduino.write(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
     global rejected
@@ -190,4 +191,6 @@ def display_message_to_user(message):
     pass
 
 if __name__ == "__main__":
+    print_ticket("Hello world!!!!")
+    quit()
     main_game_loop()

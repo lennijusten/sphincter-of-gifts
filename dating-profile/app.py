@@ -27,12 +27,9 @@ def process():
         print(response)  # Print the response to console for now
 
         if (response != None):
-            print(end)
-            print(tinder_irl.rejected)
             if end and not tinder_irl.rejected:
-                print("----------------\n\nENDING----------------\n\n")
-                # tinder_irl.print_ticket(tinder_irl.make_limerick(conversation_history))
-                print(tinder_irl.make_limerick(conversation_history))
+                pickup = tinder_irl.make_limerick(conversation_history)
+                tinder_irl.print_ticket(pickup)
             return jsonify({'response': response, 'end': end, 'rejected': tinder_irl.rejected})
         else:
             return jsonify({'error': 'No message text provided'}), 400

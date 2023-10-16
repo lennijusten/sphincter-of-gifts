@@ -544,7 +544,7 @@
             "planetName": "Zephyria",
             "age": "987 wind cycles",
             "alien-id": "789",
-            "img": "zarazephyr.jpg"
+            "img": "zarazephyr.jpeg"
         },
         {
             "name": "Io Racket",
@@ -558,7 +558,7 @@
             "planetName": "Tennix",
             "age": "42 software updates",
             "alien-id": "123",
-            "img": "ioracket.jpg"
+            "img": "ioracket.jpeg"
         },
         {
             "name": "Zee Zee",
@@ -572,7 +572,7 @@
             "planetName": "Zyra",
             "age": "17 solar cycles",
             "alien-id": "456",
-            "img": "zeezee.jpg"
+            "img": "zeezee.jpeg"
         },
         {
             "name": "Neva Lush",
@@ -586,7 +586,7 @@
             "planetName": "Aetherius Prime",
             "age": "573 orbital cycles",
             "alien-id": "456",
-            "img": "nevalush.jpg"
+            "img": "nevalush.jpeg"
         },
         {
             "name": "Jorvo Cosmwind",
@@ -600,7 +600,7 @@
             "planetName": "Glintara Majoris",
             "age": "298 solar flares",
             "alien-id": "789",
-            "img": "jorvocosmwind.jpg"
+            "img": "jorvocosmwind.jpeg"
         },
         {
             "name": "Lila Synthwave",
@@ -614,7 +614,7 @@
             "planetName": "Bitstreamia",
             "age": "1024 teracycles",
             "alien-id": "456",
-            "img": "lilasynthwave.jpg"
+            "img": "lilasynthwave.jpeg"
         },
         {
             "name": "Thal'zar the Voyager",
@@ -628,7 +628,7 @@
             "planetName": "Mirrordrift Prime",
             "age": "5 cosmic epochs",
             "alien-id": "789",
-            "img": "thalzarvoyager.jpg"
+            "img": "thalzarvoyager.jpeg"
         },
         {
             "name": "Nelthorion, the Ethereal Warden",
@@ -642,7 +642,7 @@
             "planetName": "Oblivion's Nexus",
             "age": "Beyond your concept of time",
             "alien-id": "812",
-            "img": "nelthorionwarden.jpg"
+            "img": "nelthorionwarden.jpeg"
         },
         {
             "name": "Elara, the Silken Enchantress",
@@ -656,7 +656,7 @@
             "planetName": "Luminous Labyrinth",
             "age": "Ageless, as time bends around her",
             "alien-id": "927",
-            "img": "elarasilken.jpg"
+            "img": "elarasilken.jpeg"
         },
         {
             "name": "Astra Lumina",
@@ -670,7 +670,7 @@
             "planetName": "Nebulix",
             "age": "107 light rotations",
             "alien-id": "456",
-            "img": "astralumina.jpg"
+            "img": "astralumina.jpeg"
         },
         {
             "name": "Captain Fuzzbolt",
@@ -684,7 +684,7 @@
             "planetName": "Fluffnado",
             "age": "32 moon cycles",
             "alien-id": "789",
-            "img": "captainfuzzbolt.jpg"
+            "img": "captainfuzzbolt.jpeg"
         },
         {
             "name": "Abyssia Serene",
@@ -698,7 +698,7 @@
             "planetName": "Nebulune",
             "age": "Eons beyond count",
             "alien-id": "456",
-            "img": "abyssiaserene.jpg"
+            "img": "abyssiaserene.jpeg"
         }
     ]
 }
