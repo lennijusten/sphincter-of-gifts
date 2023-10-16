@@ -1,4 +1,4 @@
-# Zinder
+# The Sphincter of Gifts
 Nebraska, 
 a land known for its cornfields, was suddenly thrust into interstellar limelight when a farmer stumbled upon a pulsating, organic oddity in his backyard - a massive biological sphincter, sitting oddly amidst the crops. 
 
@@ -6,7 +6,7 @@ Dr. Elara Sterling, the most esteemed astrobiologist in Kansas, was among the fi
 
 Deep within its organic folds, her fingers brushed against a small object. Pulling it out, she found a USB stick that looked surprisingly terrestrial for something located inside an extraterrestrial orifice. 
 
-No sooner had the discovery been made when government agents swooped in, confiscating the USB, shrouding its potential revelations in secrecy.
+No sooner had the discovery been made when government agents swooped in, confiscating the USB, shrouding its potential revelations in secrecy. Rumours whispered of clandestine tests and confidential briefings.
 
 Tonight, in a grandiose gala held in a secretive location, we have gotten access to the program, and the public is being introduced to these mysterious extraterrestrial entities. As the screen displays the aliens in full splendor, humans get a chance to chat, flirt, and perhaps, even forge an intergalactic bond.
 
