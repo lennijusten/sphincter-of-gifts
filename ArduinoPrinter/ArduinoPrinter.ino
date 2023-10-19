@@ -15,23 +15,22 @@ void setup() {
       
   pinMode(LED_PIN, OUTPUT);
   
-  delay(1000);
+  delay(100);
   Serial.println("Arduino is ready.");
   flash();
-  delay(1000);
+  delay(100);
 }
 
 //===============
 
 void loop() {
   while (!Serial.available());
-  String received = Serial.readString();
-  String date = received.substring(0, received.indexOf('|'));
-  String id = received.substring(received.indexOf('|') + 1);
+  String date = Serial.readString();
 
   flash();
-  printer.print(date, id);
-  Serial.println("Done!");
+  printer.print(date);
+  delay(1000);
+//  Serial.println("Done!");
 }
 
 //===============
