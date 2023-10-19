@@ -15,7 +15,7 @@ class Printer {
       m_printer.begin();
     }
 
-    void print(String date, String id) {
+    void print(String date) {
       m_printer.justify('C');
       m_printer.setSize('M');
       m_printer.doubleHeightOn();
@@ -25,12 +25,14 @@ class Printer {
 
       m_printer.println(date);
       m_printer.setSize('S');
-      m_printer.println("Free Drink Ticket");
       
       m_printer.feed(1);
       
       m_printer.setSize('S');
       unsigned long idx = random(6);
+      m_printer.println(ascii_art[idx]);
+      
+      idx = random(6);
       m_printer.println(ascii_art[idx]);
       
       m_printer.feed(1);
@@ -42,16 +44,19 @@ class Printer {
       
       m_printer.boldOff();
       m_printer.setSize('S');
+      m_printer.println("Redeem for a Martian MargharET.");
+      m_printer.feed(1);
       m_printer.println("10/13/23");
-      m_printer.print("Ticket ID: ");
-      m_printer.println(id);
+//      m_printer.println("Ticket ID: ");
+//      m_printer.println(id);
       
-      m_printer.feed(3);
+      m_printer.setSize('L');
+      m_printer.feed(8);
       
-      m_printer.sleep();
-      delay(500);
-      m_printer.wake();
-      m_printer.setDefault();
+//      m_printer.sleep();
+//      delay(500);
+//      m_printer.wake();
+//      m_printer.setDefault();
     }
 
   private:
