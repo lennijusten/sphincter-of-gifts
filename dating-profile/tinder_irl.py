@@ -6,12 +6,40 @@ import os
 import json
 
 # Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Port for the arduino
-port = ""
+port = "/dev/cu.usbserial-130"
+
+# counter for conversation
+count = 0
+
+# when to end conversation
+CHAT_TOLERANCE = 3 #random.randint(3, 4)
+
+# conversation history
+conversation_history = ""
+
+# alien
+alien = {}
+
+# outcome of the encounter, sets to true when the last message is a rejection (user does not receive gift)
+rejected = False
+
+def reset_count():
+    global count
+    global conversation_history
+    global rejected
+    count = 0
+    conversation_history = ""
+    rejected = False
+
+def get_count():
+    global count
+    return count
 
 def parse_json():
+    global alien
     with open('./alien-profiles.json', 'r') as file:
         data = json.load(file)
     profiles = data["alienProfiles"]
@@ -23,16 +51,15 @@ def parse_json():
     interests = selected_profile['interests']
     planet_name = selected_profile['planetName']
     age = selected_profile['age']
-    alien_id = selected_profile['alien-id']
     img = selected_profile['img']
 
-    return {"name": name,
+    alien = {"name": name,
             "bio": bio,
             "interests": interests,
             "planet": planet_name,
             "age": age,
-            "id": alien_id,
             "img": "img/" + img}
+    return alien
 
 def alien_traits(bio):
     input_text = bio
@@ -47,18 +74,29 @@ def alien_traits(bio):
     values_list = [value.strip() for value in result.split(',')]
     return values_list
 
-def respond_to_user(prompt, conversation_history, role_prompt):
-    input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
-    response = openai.ChatCompletion.create(
-                  model="gpt-3.5-turbo",
-                  messages=[{"role": "system", "content": role_prompt},
-                            {"role": "user", "content": input_text}
-                  ])
+def respond_to_user(prompt, role_prompt):
+    global count
+    global CHAT_TOLERANCE
+    global conversation_history
+    global rejected
+    if (count <= CHAT_TOLERANCE):
+        input_text = conversation_history + "\nUser: " + prompt + "\nAlien:"
+        response = openai.ChatCompletion.create(
+                      model="gpt-3.5-turbo",
+                      messages=[{"role": "system", "content": role_prompt},
+                                {"role": "user", "content": input_text}
+                      ])
 
-    result = response["choices"][0]["message"]["content"]
+        result = response["choices"][0]["message"]["content"]
 
-    conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
-    return result, conversation_history
+        conversation_history = conversation_history + "\nUser: " + prompt + "\nAlien: " + result
+        count += 1
+        if (count >= CHAT_TOLERANCE):
+            end = True
+            #PRINT THE TICKET HERE
+        else:
+            end = False
+        return result, end#, rejected
 
 def get_pickup_line():
     user_input = input("What's your best pickup line for this alien?: ")
@@ -70,35 +108,55 @@ def get_message():
     return user_input
 
 def pass_pickup_line():
-    if random.random() < 0.5:
-        return True
-    else:
-        return False
+    return random.choice([True, True, False])
+    # if random.random() < 0.5:
+    #     return True
+    # else:
+    #     return False
+    
+def make_limerick(conversation_history):
+    # get chatgpt to summarize the chat and date idea in one sentence
+    return openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "system", "content": "You are an fun AI assistant that specializes in flirty pickup lines. You love puns and wordplay."}, 
+                              {"role": "user", "content": "Write one short flirty seductive pickup line from an alien to a human."}
+                              ],
+                )["choices"][0]["message"]["content"]
 
 def print_ticket(prompt: str = "SET THE PROMPT"):
     from arduino import Arduino, gen_ticket_id
 
-    if "|" in prompt:
-        print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
-        prompt = prompt.replace("|", "")
+    # if "|" in prompt:
+    #     print("WARNING: The prompt contains a pipe character, which is used to separate the prompt from the ticket ID. Removing it.")
+    #     prompt = prompt.replace("|", "")
 
     arduino = Arduino(port)
     arduino.wait_until_ready()
     print(arduino.recv().decode('utf-8'))
-    arduino.write_and_recv(f"{prompt}|{gen_ticket_id()}")
+    arduino.write("Thanks for the fondle, here's a drink.")
+    # arduino.write(f"{prompt}|{gen_ticket_id()}")
 
 def generate_role_prompt(alien):
+    global rejected
+    print(CHAT_TOLERANCE)
+    print(alien)
     role_prompt = """You are an alien looking for love, but you have high standards!
     You are chatting with the user on a dating app.
     You are not very familiar with Earth culture, but appreciate it.
-    You are confident and funny and like to reference sex. """ + \
+    Assume an eccentric alien personality based on your traits who responds with high temperature hot takes, sometimes the sexy kind.""" + \
     " Your traits are " + ' and '.join(alien_traits(alien["bio"])) + ". " + \
     " You like " + ' and '.join(alien["interests"]) + ". "
 
-    if (pass_pickup_line()):
-        role_prompt += "You are interested in the User as a potential mate because you find them sexy. You really like what the user wrote. Try to seduce them. "
-    else:
-        role_prompt += "You hate what the user wrote. You find them ugly and think they have a bad personality. Reject them bombastically. "
+    global count
+    if (count <= CHAT_TOLERANCE):
+        if count != CHAT_TOLERANCE-1:
+            role_prompt += "You are interested in the User as a potential mate because you find them sexy. You are curious what the user wrote. Flirt with them seductively in a funny or unusual way. "
+        else:
+            if (pass_pickup_line()): # 50-50 accept or reject on the last message
+                role_prompt += "You want to mate with the User because you find them sexy. You really like what the user wrote. Ask them on a date for tomorrow night seductively. "
+            else: 
+                rejected = True
+                role_prompt += "You don't like the user and don't want to mate with them. You find them ugly and think they have a bad personality. Reject them rudely and say goodbye, but in character and acknowledging the conversation history. "
 
     role_prompt += """Your messages must be under 300 characters.
     Reference the user's message in your reply.
@@ -115,20 +173,16 @@ def main_game_loop():
     print(alien["age"])
 
     # print(alien_traits(alien["bio"]))
-    role_prompt = generate_role_prompt(alien)
 
-    # print(role_prompt)
-
-    conversation_history = ""
-
-    result = respond_to_user(get_pickup_line(), conversation_history, role_prompt)
-    print(result[0])
-    conversation_history = result[1]
-    #
-    # for i in range(3):
-    #     result = respond_to_user(get_message(), conversation_history, role_prompt)
-    #     print(result[0])
-    #     conversation_history = result[1]
+    global conversation_history
+    while (True):
+        role_prompt = generate_role_prompt(alien)
+        print(role_prompt)
+        result = respond_to_user(get_message(), role_prompt)
+        print(result[0])
+        if result[-1]: # end
+            break
+        # print(conversation_history)
 
     # get_pickup_line()
 
@@ -137,4 +191,6 @@ def display_message_to_user(message):
     pass
 
 if __name__ == "__main__":
+    print_ticket("Hello world!!!!")
+    quit()
     main_game_loop()
